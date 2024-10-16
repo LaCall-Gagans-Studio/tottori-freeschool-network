@@ -99,8 +99,8 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
 
                         {/* features */}
                         <div className="mt-24 flex relative">
-                            <div className="w-2/3"><CustomText text={selectedEvent.feature_long} /></div>
-                            <div className="w-2/5 flex flex-col justify-center items-center">
+                            <div className="w-7/12"><CustomText text={selectedEvent.feature_long} /></div>
+                            <div className="w-5/12 flex flex-col justify-center items-center overflow-visible">
                                 {/* レーダーチャート */}
                                 <RadarChartFormat data={selectedEvent.feature_star}/>
 

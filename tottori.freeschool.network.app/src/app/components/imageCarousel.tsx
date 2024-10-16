@@ -40,23 +40,23 @@ interface ImageSliderProps {
     };
 
     return (
-        <div className="w-full flex flex-col items-center relative h-96">
+        <div className="w-full flex flex-col items-center relative h-96 border-ws-black bg-ws-black border pb-1">
             {/* 画像のスライダー部分 */}
             <div className="relative overflow-hidden">
                 <div
-                className={`flex transition-transform duration-500 ease-in-out ${
-                    isAnimating ? 'transform translate-x-0' : ''
-                }`}
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                    className={`flex transition-transform duration-500 ease-in-out ${
+                        isAnimating ? 'transform translate-x-0' : ''
+                    }`}
+                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
-                {images.map((img, index) => (
-                    <img
-                    key={index}
-                    src={`./img/${img}.webp`}
-                    alt={`Slide ${index}`}
-                    className="bg-[#333200] px-1 py-1 rounded text-slate-50 w-full object-cover object-center"
-                    />
-                ))}
+                    {images.map((img, index) => (
+                        <img
+                        key={index}
+                        src={`./img/${img}.webp`}
+                        alt={`Slide ${index}`}
+                        className="px-1 py-1 rounded text-slate-50 w-auto h-full object-cover object-center"
+                        />
+                    ))}
                 </div>
             </div>
 

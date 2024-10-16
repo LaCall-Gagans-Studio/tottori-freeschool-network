@@ -38,7 +38,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                         onClick={() => handleEventClick(event.id)} // Event click handler
                     >
                         <div className="h-44 z-10 bg-[#f8fdee] pr-3 rounded-lg rounded-r-lg flex relative duration-300 group-hover:-translate-x-8 transition-all">
-                            <img className="h-full w-1/4 rounded-l-lg border-l-2 border-[#bcc000] object-cover" src={`./img/${event.thumbnail}.webp`} />
+                            <img className="h-full w-1/4 rounded-l-lg border-l-2 border-[#bcc000] object-cover object-center" src={`./img/${event.img[0]}.webp`} />
                             <div className="ml-4 pr-3 py-2 w-3/4 rounded-r-lg relative  overflow-hidden">
                                 <h1 className="text-2xl font-bold text-[#bcc000]">{event.name}</h1>
                                 <h2 className="text-base font-medium text-slate-600">{event.eyecatch_short}</h2>

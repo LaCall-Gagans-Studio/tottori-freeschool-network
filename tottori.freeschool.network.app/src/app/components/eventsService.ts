@@ -42,6 +42,7 @@ export const getEvents = async (): Promise<FirebaseEvent[]> => {
             id: doc.id,
             name: data.name || "Untitled",
             tag: data.tag || [],
+            img: data.img || [],
             eyecatch_short: data.eyecatch_short || "Untitled",
             eyecatch_long: data.eyecatch_long || "Untitled",
             thumbnail: data.thumbnail || "Untitled",

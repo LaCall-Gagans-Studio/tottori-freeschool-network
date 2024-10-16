@@ -19,7 +19,7 @@ const RadarChartFormat: React.FC<RadarChartProps> = ({ data }) => {
 
     return (
         <ResponsiveContainer width="100%" height={400}>
-        <RadarChart outerRadius="80%" data={parsedData}>
+        <RadarChart outerRadius="80%" data={parsedData} margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
             <PolarGrid />
             <PolarAngleAxis dataKey="subject" tick={{ fill: '#555' }} color='black' fontSize="bold"/>
             <PolarRadiusAxis angle={90} domain={[0, 5]} tickCount={5}/>
