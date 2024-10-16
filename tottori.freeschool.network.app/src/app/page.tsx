@@ -7,11 +7,25 @@ import EventMap from "./elements/eventMap";
 import { getEvents, FirebaseEvent } from "./components/eventsService";  // Firestoreからデータを取得する関数
 
 export default function Home() {
+  const [isClient, setIsClient] = useState(false);  // クライアントサイドかどうかを判定する状態
   const [isMapView, setIsMapView] = useState(false);  // デフォルトでリストビューを表示
   const [events, setEvents] = useState<FirebaseEvent[]>([]);  // Firestoreのデータを格納する状態
   const [loading, setLoading] = useState(true);
   const [filteredEvents, setFilteredEvents] = useState<FirebaseEvent[]>([]);  // フィルタリングされたイベント用
   const [selectedTags, setSelectedTags] = useState<string[]>([]);  // 選択されたタグを管理
+
+  // クライアントサイドかどうかを判定
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      setIsClient(true);
+      console.log('client only');
+    }
+  }, []);
+
+  // クライアントサイドでのみ表示
+  if (!isClient) {
+    return null;  // クライアントサイドでのみレンダリングするため、サーバーサイドでは何も返さない
+  }
 
   // Firestoreからイベントデータを一度だけ取得
   useEffect(() => {
@@ -35,13 +49,6 @@ export default function Home() {
       setFilteredEvents(events);  // タグが選択されていない場合は全イベントを表示
     }
   }, [selectedTags, events]);
-
-  // クライアントサイドのみで実行するロジック
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // もし将来的に window オブジェクトを使う場合はここに処理を書く
-    }
-  }, []);
 
   const toggleView = () => {
     setIsMapView(!isMapView); 
