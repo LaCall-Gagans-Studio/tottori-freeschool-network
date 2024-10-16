@@ -1,3 +1,5 @@
+'use client';
+
 // library
 import React, { useState, useEffect } from 'react';
 import { LatLngTuple } from 'leaflet';

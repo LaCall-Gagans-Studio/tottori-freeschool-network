@@ -1,3 +1,5 @@
+'use client';
+
 // library
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { divIcon, LatLngTuple } from 'leaflet';
