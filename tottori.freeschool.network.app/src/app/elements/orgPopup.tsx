@@ -1,3 +1,5 @@
+'use client';
+
 //library
 import React from 'react';
 
