@@ -66,11 +66,11 @@ const Home = () => {
           <Menu toggleView={toggleView} isMapView={isMapView} toggleTag={toggleTag} selectedTags={selectedTags} />
         </div>
         <div className="w-5/6">
-          {isClient ? (
+          {/* {isClient ? (
             isMapView ? <EventMap events={filteredEvents} /> : <EventList events={filteredEvents} />
           ) : (
             <div>Loading client data...</div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
