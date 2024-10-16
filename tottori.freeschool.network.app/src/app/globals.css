@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,4 +26,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.custom-marker {
+  transition: transform 0.2s ease-in-out;  /* アニメーションのスムーズさ */
+}
+
+.custom-marker:hover {
+  transform: scale(1.1); 
 }
