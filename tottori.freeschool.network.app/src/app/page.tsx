@@ -73,7 +73,7 @@ const Home = () => {
         </div>
         <div className="w-5/6">
           {/* {isMapView ? <EventMap events={filteredEvents} /> : <EventList events={filteredEvents} />} */}
-          <EventList events={filteredEvents} />
+          {/* <EventList events={filteredEvents} /> */}
         </div>
       </div>
     </div>
