@@ -73,7 +73,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                     <CiLocationArrow1 />
                                     <p>送迎</p>
                                 </div>  
-                                <div className="">{selectedEvent.transfer}</div>
+                                <div className=""><CustomText text={selectedEvent.transfer} /></div>
                             </div>
 
                             <div className="border-ws-primary border-2 py-4 gap-2 flex flex-col items-center justify-center">
@@ -81,7 +81,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                     <CiForkAndKnife  />
                                     <p>給食</p>
                                 </div>  
-                                <div className="">{selectedEvent.dish}</div>
+                                <div className=""><CustomText text={selectedEvent.dish} /></div>
                             </div>
                         </div>
 

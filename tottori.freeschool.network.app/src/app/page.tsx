@@ -36,6 +36,13 @@ export default function Home() {
     }
   }, [selectedTags, events]);
 
+  // クライアントサイドのみで実行するロジック
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // もし将来的に window オブジェクトを使う場合はここに処理を書く
+    }
+  }, []);
+
   const toggleView = () => {
     setIsMapView(!isMapView); 
   };
