@@ -9,6 +9,7 @@ import { getEvents, FirebaseEvent } from "./components/eventsService";
 
 // クライアントサイドでのみ実行されるコンポーネントにする
 const Home = () => {
+  if (typeof window !== 'undefined') {
   const [isClient, setIsClient] = useState(false);
   const [isMapView, setIsMapView] = useState(false);
   const [events, setEvents] = useState<FirebaseEvent[]>([]);
@@ -77,6 +78,7 @@ const Home = () => {
       </div>
     </div>
   );
+}
 };
 
 // `ssr: false` を指定してサーバーサイドレンダリングを無効化
