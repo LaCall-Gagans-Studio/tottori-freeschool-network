@@ -1,41 +1,42 @@
 'use client';
 
-import { useState, useEffect } from "react";
+import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 import EventList from "./elements/eventList";
 import Menu from "./elements/menu";
 import EventMap from "./elements/eventMap";
-import { getEvents, FirebaseEvent } from "./components/eventsService";  // Firestoreからデータを取得する関数
+import { getEvents, FirebaseEvent } from "./components/eventsService";
 
-export default function Home() {
-  const [isClient, setIsClient] = useState(false);  // クライアントサイドかどうかを判定する状態
-  const [isMapView, setIsMapView] = useState(false);  // デフォルトでリストビューを表示
-  const [events, setEvents] = useState<FirebaseEvent[]>([]);  // Firestoreのデータを格納する状態
+// クライアントサイドでのみ実行されるコンポーネントにする
+const Home = () => {
+  const [isClient, setIsClient] = useState(false);
+  const [isMapView, setIsMapView] = useState(false);
+  const [events, setEvents] = useState<FirebaseEvent[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filteredEvents, setFilteredEvents] = useState<FirebaseEvent[]>([]);  // フィルタリングされたイベント用
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);  // 選択されたタグを管理
+  const [filteredEvents, setFilteredEvents] = useState<FirebaseEvent[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  // クライアントサイドかどうかを判定
+  // クライアントサイドでの判定
   useEffect(() => {
     if (typeof document !== 'undefined') {
       setIsClient(true);
-      console.log('client only');
     }
   }, []);
 
-  // クライアントサイドでのみ表示
+  // クライアントサイドのみで実行
   if (!isClient) {
-    return null;  // クライアントサイドでのみレンダリングするため、サーバーサイドでは何も返さない
+    return null;
   }
 
   // Firestoreからイベントデータを一度だけ取得
   useEffect(() => {
-      const fetchEvents = async () => {
-          const eventsData = await getEvents();
-          setEvents(eventsData);
-          setLoading(false);
-      };
+    const fetchEvents = async () => {
+      const eventsData = await getEvents();
+      setEvents(eventsData);
+      setLoading(false);
+    };
 
-      fetchEvents();
+    fetchEvents();
   }, []);
 
   // 選択されたタグでイベントをフィルタリング
@@ -51,31 +52,32 @@ export default function Home() {
   }, [selectedTags, events]);
 
   const toggleView = () => {
-    setIsMapView(!isMapView); 
+    setIsMapView(!isMapView);
   };
 
   const toggleTag = (tag: string) => {
-    // タグのオン/オフを切り替える
-    setSelectedTags(prevTags => 
+    setSelectedTags(prevTags =>
       prevTags.includes(tag) ? prevTags.filter(t => t !== tag) : [...prevTags, tag]
     );
   };
 
   if (loading) {
-      return <div>Loading events...</div>;
+    return <div>Loading events...</div>;
   }
 
   return (
     <div className="w-screen bg-[#f8fdee] font-zenGothic relative">
-        <div className="flex w-full">
-          <div className="w-1/6">
-              <Menu toggleView={toggleView} isMapView={isMapView} toggleTag={toggleTag} selectedTags={selectedTags} />
-          </div>
-          <div className="w-5/6">
-            {/* データを渡して、ビューを切り替える */}
-            {isMapView ? <EventMap events={filteredEvents} /> : <EventList events={filteredEvents} />}
-          </div>
+      <div className="flex w-full">
+        <div className="w-1/6">
+          <Menu toggleView={toggleView} isMapView={isMapView} toggleTag={toggleTag} selectedTags={selectedTags} />
         </div>
+        <div className="w-5/6">
+          {isMapView ? <EventMap events={filteredEvents} /> : <EventList events={filteredEvents} />}
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+// `ssr: false` を指定してサーバーサイドレンダリングを無効化
+export default dynamic(() => Promise.resolve(Home), { ssr: false });
