@@ -1,6 +1,5 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import EventList from "./elements/eventList";
 import Menu from "./elements/menu";
@@ -81,5 +80,4 @@ const Home = () => {
 }
 };
 
-// `ssr: false` を指定してサーバーサイドレンダリングを無効化
-export default dynamic(() => Promise.resolve(Home), { ssr: false });
+export default Home;
