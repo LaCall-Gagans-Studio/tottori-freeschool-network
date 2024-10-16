@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import EventList from "./elements/eventList";
 import Menu from "./elements/menu";
 import EventMap from "./elements/eventMap";
