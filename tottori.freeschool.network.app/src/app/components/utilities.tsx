@@ -136,7 +136,7 @@ export const GoogleMapEmbed: React.FC<{
     }> = ({ location, width, height }) => {
 
     const { latitude, longitude } = location;
-    const mapSrc = `http://maps.google.co.jp/maps?&q=${latitude},${longitude}&output=embed&t=m&z=17`;
+    const mapSrc = `https://maps.google.co.jp/maps?&q=${latitude},${longitude}&output=embed&t=m&z=17`;
 
     return (
         <iframe
