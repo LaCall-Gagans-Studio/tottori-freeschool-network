@@ -75,11 +75,11 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
         </div>
 
         {/* ポップアップを表示 */}
-        <EventPopup 
+        {/* <EventPopup 
             selectedEvent={selectedEvent} 
             onClose={handleClosePopup}
             detailsLoading={detailsLoading}
-        />
+        /> */}
         </div>
     );
 };
