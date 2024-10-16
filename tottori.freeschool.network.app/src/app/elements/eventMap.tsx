@@ -3,10 +3,9 @@
 // library
 import React, { useState, useEffect } from 'react';
 import { LatLngTuple } from 'leaflet';
-import dynamic from 'next/dynamic';  // dynamicインポートを追加
 
 // components
-const LeafletMap = dynamic(() => import("../components/leafLetMap"), { ssr: false });  // SSR無効化
+import LeafletMap from "../components/leafLetMap";
 import { getEventDetails, FirebaseEvent } from "../components/eventsService";  
 import EventPopup from "./eventPopup";  
 
@@ -48,7 +47,6 @@ const EventMap: React.FC<EventMapProps> = ({ events }) => {
 
     return (
         <div className="container w-full h-full">
-            {/* LeafletMapコンポーネントがクライアントサイドでのみ動作するようにする */}
             <LeafletMap
                 center={center}
                 zoom={10}
@@ -66,3 +64,5 @@ const EventMap: React.FC<EventMapProps> = ({ events }) => {
 };
 
 export default EventMap;
+
+

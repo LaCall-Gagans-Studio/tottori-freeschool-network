@@ -7,7 +7,7 @@ import { CiLocationOn, CiUser } from "react-icons/ci";
 //components
 import { getEventDetails, FirebaseEvent } from "../components/eventsService";
 import { DeleteRichText, TargetValueFormat } from "../components/utilities";
-import EventPopup from "./eventPopup"; // 新しいポップアップコンポーネント
+import EventPopup from "./eventPopup"; 
 
 interface EventListProps {
     events: FirebaseEvent[];  // Firestoreから受け取るイベントの型
@@ -75,11 +75,15 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
         </div>
 
         {/* ポップアップを表示 */}
-        <EventPopup 
-            selectedEvent={selectedEvent} 
-            onClose={handleClosePopup}
-            detailsLoading={detailsLoading}
-        />
+        
+        <div className={`relative transition-all duration-300`}>
+            <EventPopup 
+                selectedEvent={selectedEvent} 
+                onClose={handleClosePopup}
+                detailsLoading={detailsLoading}
+            />
+        </div>
+        
         </div>
     );
 };
