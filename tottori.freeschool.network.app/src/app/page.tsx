@@ -22,11 +22,6 @@ const Home = () => {
     }
   }, []);
 
-  // クライアントサイドのみで実行
-  if (!isClient) {
-    return null;
-  }
-
   // Firestoreからイベントデータを一度だけ取得
   useEffect(() => {
     const fetchEvents = async () => {
@@ -71,8 +66,11 @@ const Home = () => {
           <Menu toggleView={toggleView} isMapView={isMapView} toggleTag={toggleTag} selectedTags={selectedTags} />
         </div>
         <div className="w-5/6">
-          {/* {isMapView ? <EventMap events={filteredEvents} /> : <EventList events={filteredEvents} />} */}
-          {/* <EventList events={filteredEvents} /> */}
+          {isClient ? (
+            isMapView ? <EventMap events={filteredEvents} /> : <EventList events={filteredEvents} />
+          ) : (
+            <div>Loading client data...</div>
+          )}
         </div>
       </div>
     </div>
