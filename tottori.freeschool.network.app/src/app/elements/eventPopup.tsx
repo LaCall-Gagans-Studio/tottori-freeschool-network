@@ -50,7 +50,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                         {/* images and eyecatch */}
                         <div className="flex mt-6">
                             <div className="w-1/2">
-                                <ImageCarousel images={["https:thumbor.forbes.com/thumbor/fit-in/900x510/https:www.forbes.com/home-improvement/wp-content/uploads/2022/07/Paris_Exterior_4-Edit-e1714649473120.png","https:images.pexels.com/photos/106399/pexels-photo-106399.jpeg"]}/>
+                                <ImageCarousel images={selectedEvent.img}/>
                             </div>
 
                             <div className="w-3/5 p-1 ml-2">
@@ -75,7 +75,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                     <CiLocationArrow1 />
                                     <p>送迎</p>
                                 </div>  
-                                <div className=""><CustomText text={selectedEvent.transfer} /></div>
+                                <div className="text-center"><CustomText text={selectedEvent.transfer} /></div>
                             </div>
 
                             <div className="border-ws-primary border-2 py-4 gap-2 flex flex-col items-center justify-center">
@@ -83,7 +83,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                     <CiForkAndKnife  />
                                     <p>給食</p>
                                 </div>  
-                                <div className=""><CustomText text={selectedEvent.dish} /></div>
+                                <div className="text-center"><CustomText text={selectedEvent.dish} /></div>
                             </div>
                         </div>
 
@@ -99,14 +99,15 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
 
                         {/* features */}
                         <div className="mt-24 flex relative">
-                            {/* <h3 className="text-ws-primary absolute -rotate-6 left-0 top-0">大谷さんの実際に見てきたコーナー</h3> */}
-                        
                             <div className="w-2/3"><CustomText text={selectedEvent.feature_long} /></div>
                             <div className="w-2/5 flex flex-col justify-center items-center">
+                                {/* レーダーチャート */}
                                 <RadarChartFormat data={selectedEvent.feature_star}/>
+
+                                {/* 可奈子ポイント */}
                                 <div className='w-4/6 h-auto px-2 pb-3 bg-ws-gray rounded-md'>
                                     <img src='./portfolio/kanako_anime.png' className='h-24 w-auto'/>
-                                    <p><CustomText text={selectedEvent.timetable} /></p>
+                                    <p><CustomText text={selectedEvent.point} /></p>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +127,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                     <CiCoins1 />
                                     <h2 >費用</h2>
                                 </div>
-                                <div className="ml-3 mt-2"><CustomText text={selectedEvent.eyecatch_long} /></div>
+                                <div className="ml-3 mt-2"><CustomText text={selectedEvent.cost} /></div>
                             </div>
 
                             <div>
@@ -134,7 +135,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                     <CiCalendarDate />
                                     <h2 >行事など</h2>
                                 </div>
-                                <div className="ml-3 mt-2"><CustomText text={selectedEvent.eyecatch_long} /></div>
+                                <div className="ml-3 mt-2"><CustomText text={selectedEvent.events} /></div>
                             </div>
                         </div>
                     

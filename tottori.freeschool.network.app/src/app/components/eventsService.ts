@@ -19,6 +19,7 @@ export interface FirebaseEvent  {
     timetable: string;
     feature_star: string[];
     feature_long: string;
+    point: string;
     quotation: string;
     capacity: number;
     transfer: string;
@@ -76,6 +77,7 @@ export const getEventDetails = async (eventId: string): Promise<FirebaseEvent> =
         timetable: data.timetable || "Untitled",
         feature_star: data.feature_star || [],
         feature_long: data.feature_long || "Untitled",
+        point: data.point || "Untitled",
         capacity: data.capacity || 0,
         transfer: data.transfer || "Untitled",
         dish: data.dish || "Untitled",

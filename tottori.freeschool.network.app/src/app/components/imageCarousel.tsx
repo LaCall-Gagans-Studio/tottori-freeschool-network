@@ -40,7 +40,7 @@ interface ImageSliderProps {
     };
 
     return (
-        <div className="w-full flex flex-col items-center relative">
+        <div className="w-full flex flex-col items-center relative h-96">
             {/* 画像のスライダー部分 */}
             <div className="relative overflow-hidden">
                 <div
@@ -52,9 +52,9 @@ interface ImageSliderProps {
                 {images.map((img, index) => (
                     <img
                     key={index}
-                    src={img}
+                    src={`./img/${img}.webp`}
                     alt={`Slide ${index}`}
-                    className="bg-[#333200] px-1 py-1 rounded text-slate-50 w-full"
+                    className="bg-[#333200] px-1 py-1 rounded text-slate-50 w-full object-cover object-center"
                     />
                 ))}
                 </div>
