@@ -41,9 +41,9 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
 
     return (
         <>
-            <div className={`fixed w-[calc(100vw*5/6)] h-full border-2 top-0 flex items-center right-0 justify-center z-50 transition-all duration-1000`}>
+            <div className={`fixed w-full lg:w-[calc(100vw*5/6)] h-[calc(100vh*11/12)] lg:h-full top-0 flex items-center right-0 justify-center z-50 transition-all duration-1000`}>
                 <div
-                    className={`absolute bg-white p-6 text-black h-screen w-full overflow-scroll transition-transform duration-300 ease-in-out ${
+                    className={`absolute bg-white p-6 text-black h-full w-full overflow-scroll transition-transform duration-300 ease-in-out ${
                         isVisible ? 'translate-x-0' : 'translate-x-full'
                     }`}
                 >
@@ -56,7 +56,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                             <h1 className="text-3xl font-bold text-ws-primary">{selectedEvent.name}</h1>
                             <h2 className="text-lg">{selectedEvent.org}</h2>
                             <p className="text-sm text-slate-500">{selectedEvent.address}</p>
-                            <div className="text-sm flex gap-2 py-2">
+                            <div className="text-sm flex gap-1 lg:gap-2 py-2 flex-wrap">
                                 {selectedEvent.tag.map((tag) => (
                                     <div className="bg-[#333200] px-1 py-1 rounded text-slate-50 cursor-pointer">
                                         {tag}
@@ -64,14 +64,13 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                 ))}
                             </div>
                         
-
                             {/* images and eyecatch */}
-                            <div className="flex mt-6">
-                                <div className="w-1/2">
+                            <div className="flex mt-6 flex-col lg:flex-row">
+                                <div className="w-full lg:w-1/2 h-56 lg:h-96">
                                     <ImageCarousel images={selectedEvent.img}/>
                                 </div>
 
-                                <div className="w-3/5 p-1 ml-2">
+                                <div className="w-full lg:w-3/5 p-1 ml-2">
                                     <h3 className="text-2xl mb-3">{selectedEvent.eyecatch_short}</h3>
                                     <h3 className="text-base"><CustomText text={selectedEvent.eyecatch_long} /></h3>
                                 </div>
@@ -79,11 +78,11 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                             </div>
                         
                             {/* box infos (target, address, dish) */}
-                            <div className="grid grid-cols-3 gap-8 text-base mx-auto w-10/12 mt-12">
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-sm lg:text-base mx-auto w-10/12 mt-12">
                                 <div className="border-ws-primary border-2 py-4 gap-2 flex flex-col items-center justify-center group duration-500 hover:bg-ws-primary cursor-default">
                                     <div className="text-ws-primary gap-2 text-lg flex items-center font-medium group-hover:text-white">
                                         <CiUser />
-                                        <p>対象</p>
+                                        <p className='text-sm lg:text-base'>対象</p>
                                     </div>  
                                     <div className="text-base"><TargetValueFormat target={selectedEvent.target} /></div>
                                 </div>
@@ -91,7 +90,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                 <div className="border-ws-primary border-2 py-4 gap-2 flex flex-col items-center justify-center group duration-500 hover:bg-ws-primary cursor-default">
                                     <div className="text-ws-primary gap-2 text-lg flex items-center font-medium group-hover:text-white">
                                         <CiLocationArrow1 />
-                                        <p>送迎</p>
+                                        <p className='text-sm lg:text-base'>送迎</p>
                                     </div>  
                                     <div className="text-center"><CustomText text={selectedEvent.transfer} /></div>
                                 </div>
@@ -99,7 +98,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                 <div className="border-ws-primary border-2 py-4 gap-2 flex flex-col items-center justify-center group duration-500 hover:bg-ws-primary cursor-default">
                                     <div className="text-ws-primary gap-2 text-lg flex items-center font-medium group-hover:text-white">
                                         <CiForkAndKnife  />
-                                        <p>給食</p>
+                                        <p className='text-sm lg:text-base'>給食</p>
                                     </div>  
                                     <div className="text-center"><CustomText text={selectedEvent.dish} /></div>
                                 </div>
@@ -116,14 +115,14 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                             </div>
 
                             {/* features */}
-                            <div className="mt-24 flex relative">
-                                <div className="w-7/12"><CustomText text={selectedEvent.feature_long} /></div>
-                                <div className="w-5/12 flex flex-col justify-center items-center overflow-visible">
+                            <div className="mt-24 flex relative flex-col lg:flex-row">
+                                <div className="w-full lg:w-7/12"><CustomText text={selectedEvent.feature_long} /></div>
+                                <div className="w-full lg:w-5/12 flex flex-col justify-center items-center overflow-visible">
                                     {/* レーダーチャート */}
                                     <RadarChartFormat data={selectedEvent.feature_star}/>
 
                                     {/* 可奈子ポイント */}
-                                    <div className='w-4/6 h-auto px-2 pb-3 bg-ws-gray rounded-md'>
+                                    <div className='w-full lg:w-4/6 h-auto px-2 pb-3 bg-ws-gray rounded-md'>
                                         <img src='./portfolio/kanako_anime.png' className='h-24 w-auto'/>
                                         <p><CustomText text={selectedEvent.point} /></p>
                                     </div>
@@ -189,13 +188,13 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                             </div>
                             
                         
-                            <div className="flex my-24 h-40 items-center justify-center gap-16">
+                            <div className="flex my-24 h-32 lg:h-40 items-center justify-center gap-4 lg:gap-16">
                                 <a href={selectedEvent.url} className="h-full flex flex-col items-center justify-center px-3 text-center hover:bg-ws-primary hover:text-slate-50 cursor-pointer rounded-md text-ws-primary border-ws-primary border-2 transition-all duration-100">
-                                    <h6 className="text-xl font-semibold">このフリースクールのHPに行く</h6>               
+                                    <h6 className="text-sm lg:text-xl font-semibold">このフリースクールのHPに行く</h6>               
                                     <p className="text-xs mt-2">外部リンクに飛びます</p>
                                 </a>
                                 <a className="h-full flex flex-col items-center justify-center px-3 text-center hover:bg-ws-primary hover:text-slate-50 cursor-pointer rounded-md text-ws-primary border-ws-primary border-2 transition-all duration-100">
-                                    <h6 className="text-xl font-semibold">まずは相談してみる</h6>     
+                                    <h6 className="text-sm lg:text-xl font-semibold">まずは相談してみる</h6>     
                                     <p className="text-xs mt-2">お気軽になんでもお聞きください</p>           
                                     <p className="text-xs mt-2">フォームにご入力ください</p>
                                 </a>

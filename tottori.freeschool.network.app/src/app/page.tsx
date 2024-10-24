@@ -60,12 +60,12 @@ const Home = () => {
   }
 
   return (
-    <div className="w-screen bg-[#f8fdee] font-zenGothic relative">
-      <div className="flex w-full">
-        <div className="w-1/6">
+    <div className="w-screen bg-[#f8fdee] font-zenGothic relative h-screen">
+      <div className="flex flex-col lg:flex-row w-full h-screen">
+        <div className="basis-1/12 lg:basis-auto lg:h-full w-full lg:w-1/6 order-2 lg:order-1">
           <Menu toggleView={toggleView} isMapView={isMapView} toggleTag={toggleTag} selectedTags={selectedTags} />
         </div>
-        <div className="w-5/6">
+        <div className="basis-11/12 lg:basis-auto lg:h-full w-full lg:w-5/6 order-1 lg:order-2">
           {isClient ? (
             isMapView ? <EventMap events={filteredEvents} /> : <EventList events={filteredEvents} />
           ) : (

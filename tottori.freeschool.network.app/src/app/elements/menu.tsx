@@ -15,21 +15,24 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
     };
 
     return (
-        <div className="w-full h-screen mx-auto border bg-[#333200] px-2">
-            <p>※サイトは現在作成中です</p>
-            <img src="./common/logo.png" className="max-w-full h-auto"/>
-            <p className="my-2 text-lg text-[#bcc000]">鳥取県内のフリースクールを詳しくまとめています</p>
-            <ul className="my-3 text-sm text-[#bcc000] list-disc list-inside gap-1">
-                <li className="pl-2">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
-                <li className="pl-2">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</li>
-            </ul>
+        <div className="w-full h-[calc(100vh*1/12)] lg:h-screen relative mx-auto bg-ws-black px-2 flex lg:flex-col">
+            <p className="absolute -top-5 lg:relative">※サイトは現在作成中です</p>
+
+            <div className="h-full lg:h-auto order-3 lg:order-1">
+                <img src="./common/logo.png" className="w-32 lg:max-w-full h-auto"/>
+                <p className="my-2 text-lg text-[#bcc000]">鳥取県内のフリースクールを詳しくまとめています</p>
+                <ul className="my-3 text-sm text-[#bcc000] list-disc list-inside gap-1">
+                    <li className="pl-2">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
+                    <li className="pl-2">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</li>
+                </ul>
+            </div>
 
             {/* 表示切り替え */}
-            <div className="mt-4 pl-2">
+            <div className="mt-4 h-full lg:h-auto pl-2 order-1 lg:order-2">
                 <h2 className="text-sm text-ws-gray font-light my-1">表示</h2>
                 <button
                     onClick={toggleView}
-                    className="text-white rounded flex"
+                    className="text-white rounded flex flex-col lg:flex-row"
                 >
                     <div className={`${isMapView ? "bg-ws-primary" : "bg-ws-gray text-ws-black"} py-2 px-3 rounded-l`}>マップ</div>
                     <div className={`${isMapView ? "bg-ws-gray text-ws-black" : "bg-ws-primary"} py-2 px-3 rounded-r`}>リスト</div>
@@ -37,7 +40,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
             </div>
 
             {/* 絞り込み */}
-            <div className="mt-4 pl-2 w-full">
+            <div className="mt-4 pl-2 h-full lg:h-auto w-full overflow-scroll lg:overflow-visible order-2 lg:order-3">
                 <h2 className="text-sm text-ws-gray font-light my-1">絞り込み</h2>
                 {tags.map(tag => (
                     <button
@@ -53,7 +56,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
             </div>
 
             {/* だれがやっている (ポップアップ表示ボタン) */}
-            <div className="mt-4 pl-2 w-full">
+            <div className="mt-4 pl-2 w-full h-full lg:h-auto order-4 lg:order-4">
                 <h2 className="text-sm text-ws-gray font-light my-1">運営者について</h2>
                 <button
                     onClick={handleOrgPopupOpen}

@@ -40,7 +40,7 @@ interface ImageSliderProps {
     };
 
     return (
-        <div className="w-full flex flex-col items-center relative h-96 border-ws-black bg-ws-black border pb-1">
+        <div className="w-full flex flex-col items-center relative h-full border-ws-black bg-ws-black border pb-1">
             {/* 画像のスライダー部分 */}
             <div className="relative overflow-hidden">
                 <div
