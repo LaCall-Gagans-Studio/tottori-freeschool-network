@@ -10,8 +10,9 @@ export const DeleteRichText: React.FC<{ text: string }> = ({ text }) => {
         // ###を削除
         let output = input.replace(/###/g, '');
         // 改行(\n)を削除
-        output = output.replace('\\n', ' ');
-        output = output.replace('-', '');
+        output = output.replace(/\\n/g, ' ');
+        // '-' を削除
+        output = output.replace(/-/g, '');
         return output;
     };
 
