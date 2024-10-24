@@ -1,13 +1,22 @@
-'use client';
-
-import React from "react";
+// 'useState' と 'OrgPopup' のインポートを追加
+import React, { useState } from "react";
+import OrgPopup from "./orgPopup";  // OrgPopup のインポート
 
 const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (tag: string) => void, selectedTags: string[] }> = ({ toggleView, isMapView, toggleTag, selectedTags }) => {
+    const [isOrgPopupVisible, setIsOrgPopupVisible] = useState(false); // OrgPopup 表示用の state 追加
     const tags = ["少人数(~8)", "中人数(9~19)", "大人数(20~)", "未就学児", "小学生", "中学生", "高校生", "20歳以上", "送迎あり", "給食あり", "学習サポート", "受験対応", "東部", "中部", "西部", "県認定",];  // 利用可能なタグ
+
+    const handleOrgPopupOpen = () => {
+        setIsOrgPopupVisible(true); // ポップアップを開く
+    };
+
+    const handleOrgPopupClose = () => {
+        setIsOrgPopupVisible(false); // ポップアップを閉じる
+    };
 
     return (
         <div className="w-full h-screen mx-auto border bg-[#333200] px-2">
-            <p>Dev now</p>
+            <p>※サイトは現在作成中です</p>
             <img src="./common/logo.png" className="max-w-full h-auto"/>
             <p className="my-2 text-lg text-[#bcc000]">鳥取県内のフリースクールを詳しくまとめています</p>
             <ul className="my-3 text-sm text-[#bcc000] list-disc list-inside gap-1">
@@ -42,6 +51,20 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                     </button>
                 ))}
             </div>
+
+            {/* だれがやっている (ポップアップ表示ボタン) */}
+            <div className="mt-4 pl-2 w-full">
+                <h2 className="text-sm text-ws-gray font-light my-1">運営者について</h2>
+                <button
+                    onClick={handleOrgPopupOpen}
+                    className="text-white bg-ws-primary px-4 py-2 rounded hover:bg-ws-gray transition"
+                >
+                    詳しく見る
+                </button>
+            </div>
+
+            {/* OrgPopup の表示 */}
+            {isOrgPopupVisible && <OrgPopup onClose={handleOrgPopupClose} />}
         </div>
     );
 };

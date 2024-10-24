@@ -52,7 +52,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                                     </div>
                                     <div className="flex items-center gap-1">
                                         <CiLocationOn className="text-[#bcc000]"/>
-                                        <p className="text-sm font-normal text-slate-400">{event.address}</p>
+                                        <p className="text-sm font-normal text-slate-400 text-nowrap overflow-hidden">{event.address}</p>
                                     </div>
                                     <div className="absolute bottom-2 right-1 text-xs flex gap-2 font-semibold text-slate-600">
                                     {event.tag.map((tag) => (
