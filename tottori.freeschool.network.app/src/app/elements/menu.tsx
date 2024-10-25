@@ -19,7 +19,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
             <p className="absolute -top-5 lg:relative">※サイトは現在作成中です</p>
 
             <div className="h-full lg:h-auto order-3 lg:order-1">
-                <img src="./common/logo.png" className="w-32 lg:max-w-full h-auto"/>
+                <img src="./common/logo.png" className="w-32 lg:w-full h-auto"/>
                 <p className="my-2 text-lg text-[#bcc000]">鳥取県内のフリースクールを詳しくまとめています</p>
                 <ul className="my-3 text-sm text-[#bcc000] list-disc list-inside gap-1">
                     <li className="pl-2">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
