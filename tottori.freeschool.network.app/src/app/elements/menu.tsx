@@ -15,7 +15,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
     };
 
     return (
-        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen fixed bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex lg:flex-col z-50">
+        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen fixed bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex gap-2 lg-gap-0 lg:flex-col z-50 ">
             <p className="absolute -top-5 lg:relative">※サイトは現在作成中です</p>
 
             <div className="h-full lg:h-auto order-3 lg:order-1">
@@ -29,30 +29,33 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
 
             {/* 表示切り替え */}
             <div className="mt-4 h-full lg:h-auto pl-2 order-1 lg:order-2">
-                <h2 className="text-sm font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md text-ws-black text-nowrap">表示</h2>
+                <h2 className="text-sm font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md text-ws-black text-nowrap hidden">表示</h2>
                 <button
                     onClick={toggleView}
-                    className="text-white rounded hidden lg:flex flex-col lg:flex-row border border-ws-primary"
+                    className="text-white text-xs lg:text-base rounded lg:flex flex-col lg:flex-row border border-ws-primary"
                 >
-                    <div className={`${isMapView ? "bg-ws-primary" : "bg-ws-gray text-ws-black"} py-2 px-3 rounded-l`}>マップ</div>
-                    <div className={`${isMapView ? "bg-ws-gray text-ws-black" : "bg-ws-primary"} py-2 px-3 rounded-r`}>リスト</div>
+                    <div className={`${isMapView ? "bg-ws-primary" : "bg-ws-gray text-ws-black hidden lg:block"} py-2 px-3 rounded-l text-nowrap`}>マップ<p className="p-0 m-0 lg:hidden">ビュー</p></div>
+                    <div className={`${isMapView ? "bg-ws-gray text-ws-black hidden lg:block" : "bg-ws-primary"} py-2 px-3 rounded-r text-nowrap`}>リスト<p className="p-0 m-0 lg:hidden">ビュー</p></div>
                 </button>
             </div>
 
             {/* 絞り込み */}
-            <div className="mt-4 pl-2 h-full lg:h-auto w-auto lg:w-full overflow-scroll lg:overflow-visible order-2 lg:order-3">
-                <h2 className="text-sm w-full font-light my-1 lg:p-0 bg-ws-gray lg:bg-transparent px-2 py-1 rounded-md text-ws-black text-nowrap">絞り込み</h2>
-                {tags.map(tag => (
-                    <button
-                        key={tag}
-                        onClick={() => toggleTag(tag)}
-                        className={`text-white text-xs p-2 rounded mr-1 mb-1 hidden lg:inline hover:bg-ws-primary duration-300 ${
-                        selectedTags.includes(tag) ? "bg-ws-black" : "border-ws-primary border rounded-sm text-ws-black"
-                        }`}
-                    >
-                        {tag}
-                    </button>
-                ))}
+            <div className="mt-4 pl-2 h-full lg:h-auto lg:w-full order-2 lg:order-3">
+                <h2 className="text-sm w-full font-light my-1 lg:p-0 bg-ws-primary lg:bg-ws-gray lg:bg-transparent px-2 py-1 rounded-md text-ws-black text-nowrap">絞り込み</h2>
+                <div className="hidden lg:block">
+                    {tags.map(tag => (
+                        <button
+                            key={tag}
+                            onClick={() => toggleTag(tag)}
+                            className={`text-white text-xs p-2 rounded mr-1 mb-1 inline hover:bg-ws-primary duration-300 ${
+                            selectedTags.includes(tag) ? "bg-ws-black" : "border-ws-primary border rounded-sm text-ws-black"
+                            }`}
+                        >
+                            {tag}
+                        </button>
+                    ))}
+                </div>
+                
             </div>
 
             {/* だれがやっている (ポップアップ表示ボタン) */}
