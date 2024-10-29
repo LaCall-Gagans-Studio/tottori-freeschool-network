@@ -15,13 +15,13 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
     };
 
     return (
-        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen fixed lg:relative mx-auto bg-ws-black px-2 flex lg:flex-col z-50">
+        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen fixed lg:relative mx-auto bg-ws-gray px-2 flex lg:flex-col z-50">
             <p className="absolute -top-5 lg:relative">※サイトは現在作成中です</p>
 
             <div className="h-full lg:h-auto order-3 lg:order-1">
                 <img src="./common/logo.png" className="w-56 h-auto lg:w-full lg:h-auto"/>
-                <p className="my-2 text-lg text-[#bcc000] hidden lg:block">鳥取県内のフリースクールを詳しくまとめています</p>
-                <ul className="my-3 text-sm text-[#bcc000] list-disc list-inside gap-1 hidden lg:block">
+                <p className="my-2 text-lg text-ws-black hidden lg:block">鳥取県内のフリースクールを詳しくまとめています</p>
+                <ul className="my-3 text-sm text-ws-black list-disc list-inside gap-1 hidden lg:block">
                     <li className="pl-2">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
                     <li className="pl-2">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</li>
                 </ul>
@@ -29,10 +29,10 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
 
             {/* 表示切り替え */}
             <div className="mt-4 h-full lg:h-auto pl-2 order-1 lg:order-2">
-                <h2 className="text-sm lg:text-ws-gray font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md text-ws-black text-nowrap">表示</h2>
+                <h2 className="text-sm font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md text-ws-black text-nowrap">表示</h2>
                 <button
                     onClick={toggleView}
-                    className="text-white rounded hidden lg:flex flex-col lg:flex-row "
+                    className="text-white rounded hidden lg:flex flex-col lg:flex-row border border-ws-primary"
                 >
                     <div className={`${isMapView ? "bg-ws-primary" : "bg-ws-gray text-ws-black"} py-2 px-3 rounded-l`}>マップ</div>
                     <div className={`${isMapView ? "bg-ws-gray text-ws-black" : "bg-ws-primary"} py-2 px-3 rounded-r`}>リスト</div>
@@ -41,13 +41,13 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
 
             {/* 絞り込み */}
             <div className="mt-4 pl-2 h-full lg:h-auto w-auto lg:w-full overflow-scroll lg:overflow-visible order-2 lg:order-3">
-                <h2 className="text-sm lg:text-ws-gray w-full font-light my-1 lg:p-0 bg-ws-gray lg:bg-transparent px-2 py-1 rounded-md text-ws-black text-nowrap">絞り込み</h2>
+                <h2 className="text-sm w-full font-light my-1 lg:p-0 bg-ws-gray lg:bg-transparent px-2 py-1 rounded-md text-ws-black text-nowrap">絞り込み</h2>
                 {tags.map(tag => (
                     <button
                         key={tag}
                         onClick={() => toggleTag(tag)}
-                        className={`text-white text-xs p-2 rounded mr-1 mb-1 hidden lg:inline ${
-                        selectedTags.includes(tag) ? "bg-ws-primary" : "bg-ws-gray text-ws-black"
+                        className={`text-white text-xs p-2 rounded mr-1 mb-1 hidden lg:inline hover:bg-ws-primary duration-300 ${
+                        selectedTags.includes(tag) ? "bg-ws-black" : "border-ws-primary border rounded-sm text-ws-black"
                         }`}
                     >
                         {tag}
