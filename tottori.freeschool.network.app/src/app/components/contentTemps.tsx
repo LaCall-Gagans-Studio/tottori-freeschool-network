@@ -1,6 +1,7 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 // StaffBox
 export const StaffBox: React.FC<{ img: string, name: string, career: ReactNode, message: ReactNode }> = ({ img, name, career, message }) => {
@@ -22,5 +23,29 @@ export const StaffBox: React.FC<{ img: string, name: string, career: ReactNode, 
                 
             </div>
         </>
+    );
+};
+
+
+//Accordion
+export const Accordion: React.FC<{ icon: React.ComponentType, title: string, text: ReactNode }> = ({ icon: Icon, title, text }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const toggleExpanded = () => {
+        setIsExpanded(!isExpanded);
+    };
+
+    return (
+        <div>
+            <div className="flex text-ws-primary text-2xl items-center font-semibold gap-2" >
+                {Icon && <Icon />} 
+                <h2>{title}</h2>
+                <div className='lg:hidden' onClick={toggleExpanded}>{isExpanded ? <FaChevronUp /> : <FaChevronDown />}</div>
+                
+            </div>
+            <div className={`ml-3 mt-2 ${isExpanded ? 'block' : 'hidden'} lg:block`}>
+                {text}
+            </div>
+        </div>
     );
 };

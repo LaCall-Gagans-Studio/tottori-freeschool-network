@@ -4,12 +4,14 @@
 import React, { useState, useEffect } from 'react';
 import { CiUser, CiLocationArrow1, CiForkAndKnife, CiClock1, CiCoins1, CiCalendarDate, CiSquareMore, CiFaceSmile, CiBookmarkCheck, CiStopwatch, CiMinimize1 } from "react-icons/ci";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 //components
 import { TimestampFormat, CustomText, TargetValueFormat, GoogleMapEmbed } from "../components/utilities";
 import ImageCarousel from "../components/imageCarousel";
 import RadarChartFormat from "../components/radarChartFormat";
 import { FirebaseEvent } from "../components/eventsService";
+import { Accordion } from '../components/contentTemps';
 
 interface FirebaseEventPopupProps {
     selectedEvent: FirebaseEvent | null;   //Event型またはnullを受け取る
@@ -41,9 +43,9 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
 
     return (
         <>
-            <div className={`fixed w-full lg:w-[calc(100vw*5/6)] h-[calc(100vh*11/12)] lg:h-full top-0 flex items-center right-0 justify-center z-50 transition-all duration-1000`}>
+            <div className={`fixed w-full lg:w-[calc(100vw*5/6)] h-[calc(100svh*11/12)] lg:h-full top-0 flex items-center right-0 justify-center z-50 transition-all duration-1000`}>
                 <div
-                    className={`absolute bg-white p-6 text-black h-full w-full overflow-scroll transition-transform duration-300 ease-in-out ${
+                    className={`absolute bg-white p-6 text-black h-full w-full overflow-y-scroll transition-transform duration-300 ease-in-out ${
                         isVisible ? 'translate-x-0' : 'translate-x-full'
                     }`}
                 >
@@ -105,19 +107,19 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                             </div>
 
                             {/* quotation */}
-                            <div className="bg-ws-gray w-10/12 mx-auto mt-12 relative p-6">
+                            <div className="bg-ws-gray w-full lg:w-10/12 mx-auto mt-12 relative p-6">
                                 <FaQuoteLeft className="absolute left-1"/>
                                 <p className="text-lg">
                                     <CustomText text={selectedEvent.quotation} />
                                 </p>
                                 <FaQuoteRight className="absolute right-1"/>
-                                <div className="absolute right-0 -bottom-5 text-sm">{selectedEvent.org} HPから</div>
+                                <a href={selectedEvent.url} className="absolute right-0 -bottom-5 text-sm text-ws-primary">{selectedEvent.org} HPから</a>
                             </div>
 
                             {/* features */}
                             <div className="mt-24 flex relative flex-col lg:flex-row">
                                 <div className="w-full lg:w-7/12"><CustomText text={selectedEvent.feature_long} /></div>
-                                <div className="w-full lg:w-5/12 flex flex-col justify-center items-center overflow-visible">
+                                <div className="w-11/12 lg:w-5/12 mx-auto lg:mx-0 flex flex-col justify-center items-center overflow-visible">
                                     {/* レーダーチャート */}
                                     <RadarChartFormat data={selectedEvent.feature_star}/>
 
@@ -130,35 +132,15 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                             </div>
                         
                             {/* schedule, cost, events */}
-                            <div className="mt-24 flex flex-col gap-10">
-                                <div>
-                                    <div className="flex text-ws-primary text-2xl items-center font-semibold gap-2">
-                                        <CiClock1 />
-                                        <h2 >時間割</h2>
-                                    </div>
-                                    <div className="ml-3 mt-2"><CustomText text={selectedEvent.timetable} /></div>
-                                </div>
-
-                                <div>
-                                    <div className="flex text-ws-primary text-2xl items-center font-semibold gap-2">
-                                        <CiCoins1 />
-                                        <h2 >費用</h2>
-                                    </div>
-                                    <div className="ml-3 mt-2"><CustomText text={selectedEvent.cost} /></div>
-                                </div>
-
-                                <div>
-                                    <div className="flex text-ws-primary text-2xl items-center font-semibold gap-2">
-                                        <CiCalendarDate />
-                                        <h2 >行事など</h2>
-                                    </div>
-                                    <div className="ml-3 mt-2"><CustomText text={selectedEvent.events} /></div>
-                                </div>
+                            <div className="mt-12 lg:mt-24 flex flex-col gap-8 lg:gap-10">
+                                <Accordion icon={CiClock1} title='時間割' text={<CustomText text={selectedEvent.timetable} />} />
+                                <Accordion icon={CiCoins1} title='費用' text={<CustomText text={selectedEvent.cost} />} />
+                                <Accordion icon={CiCalendarDate} title='行事など' text={<CustomText text={selectedEvent.events} />} />
                             </div>
                         
                             {/* others */}
                             <div>
-                                <div className="flex mt-12  text-ws-primary text-2xl items-center font-semibold gap-2">
+                                <div className="flex mt-8 lg:mt-12  text-ws-primary text-2xl items-center font-semibold gap-2">
                                     <CiSquareMore  />
                                     <h2 >その他</h2>
                                 </div>
@@ -190,13 +172,13 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                         
                             <div className="flex my-24 h-32 lg:h-40 items-center justify-center gap-4 lg:gap-16">
                                 <a href={selectedEvent.url} className="h-full flex flex-col items-center justify-center px-3 text-center hover:bg-ws-primary hover:text-slate-50 cursor-pointer rounded-md text-ws-primary border-ws-primary border-2 transition-all duration-100">
-                                    <h6 className="text-sm lg:text-xl font-semibold">このフリースクールのHPに行く</h6>               
+                                    <h6 className="text-sm lg:text-xl font-semibold">このフリースクールの<br className='lg:hidden'/>HPに行く</h6>               
                                     <p className="text-xs mt-2">外部リンクに飛びます</p>
                                 </a>
                                 <a className="h-full flex flex-col items-center justify-center px-3 text-center hover:bg-ws-primary hover:text-slate-50 cursor-pointer rounded-md text-ws-primary border-ws-primary border-2 transition-all duration-100">
                                     <h6 className="text-sm lg:text-xl font-semibold">まずは相談してみる</h6>     
-                                    <p className="text-xs mt-2">お気軽になんでもお聞きください</p>           
-                                    <p className="text-xs mt-2">フォームにご入力ください</p>
+                                    <p className="text-xs mt-2">お気軽に<br className='lg:hidden'/>お聞きください</p>           
+                                    <p className="text-xs lg:mt-2 hidden lg:inline">フォームに<br className='lg:hidden'/>ご入力ください</p>
                                 </a>
                             </div>
 

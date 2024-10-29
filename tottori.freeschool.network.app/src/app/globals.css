@@ -35,3 +35,20 @@ body {
 .custom-marker:hover {
   transform: scale(1.1); 
 }
+
+/* スクロールバー全体のスタイル */
+::-webkit-scrollbar {
+  width: 2px; /* スクロールバーの幅 */
+  height: 10px;
+}
+
+/* スクロールバーのハンドル部分 */
+::-webkit-scrollbar-thumb {
+  background-color: #bcc000; /* ハンドルの色 */
+  border-radius: 5px; /* ハンドルの角の丸み */
+}
+
+/* スクロールバーのトラック部分 */
+::-webkit-scrollbar-track {
+  background: ; /* トラックの背景色 */
+}
