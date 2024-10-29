@@ -15,7 +15,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
     };
 
     return (
-        <div className="w-full h-[calc(100vh*1/12)] overflow-y-scroll lg:h-screen relative mx-auto bg-ws-black px-2 flex lg:flex-col z-50">
+        <div className="w-full h-[calc(100vh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen fixed lg:relative mx-auto bg-ws-black px-2 flex lg:flex-col z-50">
             <p className="absolute -top-5 lg:relative">※サイトは現在作成中です</p>
 
             <div className="h-full lg:h-auto order-3 lg:order-1">
