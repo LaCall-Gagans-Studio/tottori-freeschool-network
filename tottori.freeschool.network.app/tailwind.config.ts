@@ -15,7 +15,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         'ws-primary': '#bcc000',
-        'ws-black': '#333200',
+        'ws-black': '#333200', // 
         'ws-gray': "#e1e6d8"
       },
       keyframes: {

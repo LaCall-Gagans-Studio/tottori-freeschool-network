@@ -29,8 +29,8 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
     };
 
     return (
-        <div className="container p-4 pt-12 w-full lg:w-4/6 mx-auto">
-            <div className="w-full mx-auto grid grid-cols-1 gap-4 lg:gap-6 items-center justify-center">
+        <div className=" p-4 pt-12 h-[calc(100vh*11/12)] w-full lg:w-4/6 mx-auto  overflow-scroll">
+            <div className="w-full h-full mx-auto grid grid-cols-1 gap-4 lg:gap-6 items-center justify-center">
                 {events.map((event) => (
                     <div
                         key={event.id}
@@ -39,12 +39,12 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                     >
                         <div className="h-full z-10 bg-[#f8fdee] pr-3 rounded-lg rounded-r-lg flex relative duration-300 group-hover:-translate-x-8 transition-all">
                             
-                            <img className="h-full w-1/4 rounded-l-lg border-l-2 border-[#bcc000] object-cover object-center" src={`./img/${event.img[0]}.webp`} />
+                            <img className="h-full w-1/4 rounded-l-lg border-l-2 border-ws-primary object-cover object-center" src={`./img/${event.img[0]}.webp`} />
 
                             <div className="ml-4 pr-3 py-2 w-3/4 rounded-r-lg relative overflow-hidden">
 
                                 {/* 名前 */}
-                                <h1 className="text-base lg:text-2xl font-bold text-[#bcc000] text-nowrap">{event.name}</h1>
+                                <h1 className="text-base lg:text-2xl font-bold text-ws-primary text-nowrap">{event.name}</h1>
                                 {/* アイキャッチ（短） */}
                                 <h2 className="text-xs lg:text-base font-medium text-slate-600 text-nowrap">{event.eyecatch_short}</h2>
                                 {/* アイキャッチ（長） */}
@@ -52,16 +52,16 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
 
                                 <div className="mt-2 flex flex-col gap-0.5">
                                     <div className="flex items-center gap-1">
-                                        <CiUser className="text-[#bcc000]"/>
+                                        <CiUser className="text-ws-primary"/>
                                         <p className="text-xs lg:text-sm font-normal text-slate-400">{<TargetValueFormat target={event.target}/>}</p>
                                     </div>
                                     <div className="flex items-center gap-1">
-                                        <CiLocationOn className="text-[#bcc000]"/>
+                                        <CiLocationOn className="text-ws-primary"/>
                                         <p className="text-xs lg:text-sm font-normal text-slate-400 text-nowrap overflow-hidden">{event.address}</p>
                                     </div>
                                     <div className="relative my-1 lg:my-0 lg:absolute lg:bottom-2 lg:right-1 text-xs flex flex-wrap lg:flex-nowrap gap-1 lg:gap-2 font-semibold text-slate-600">
                                         {event.tag.map((tag) => (
-                                            <p className="bg-[#333200] px-1 py-1 rounded text-slate-50">
+                                            <p className="bg-ws-black px-1 py-1 rounded text-slate-50">
                                                 {tag}
                                             </p>
                                         ))}
@@ -71,7 +71,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                             </div>
                         </div>
                     
-                        <div className="h-full w-16 flex items-center bg-[#bcc000] absolute right-0 top-0 z-0 rounded-r-lg">
+                        <div className="h-full w-16 flex items-center bg-ws-primary absolute right-0 top-0 z-0 rounded-r-lg">
                             <p className="text-right w-6 ml-auto pr-2 font-bold">詳細を見る</p>
                         </div>
                     </div>
