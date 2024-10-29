@@ -15,7 +15,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
     };
 
     return (
-        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen fixed lg:relative mx-auto bg-ws-gray px-2 flex lg:flex-col z-50">
+        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen fixed bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex lg:flex-col z-50">
             <p className="absolute -top-5 lg:relative">※サイトは現在作成中です</p>
 
             <div className="h-full lg:h-auto order-3 lg:order-1">
@@ -57,10 +57,10 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
 
             {/* だれがやっている (ポップアップ表示ボタン) */}
             <div className="mt-4 pl-2 w-full h-full lg:h-auto order-4 lg:order-4">
-                <h2 className="text-sm text-ws-gray font-light my-1 hidden lg:block">運営者について</h2>
+                <h2 className="text-sm text-ws-black font-light my-1 hidden lg:block">運営者について</h2>
                 <button
                     onClick={handleOrgPopupOpen}
-                    className="text-white bg-ws-primary px-4 py-2 rounded hover:bg-ws-gray transition"
+                    className="text-white text-sm bg-ws-primary px-4 py-2 rounded hover:bg-ws-gray transition"
                 >
                     詳しく見る
                 </button>
