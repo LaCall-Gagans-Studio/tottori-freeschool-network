@@ -62,7 +62,7 @@ export const getEventDetails = async (eventId: string): Promise<FirebaseEvent> =
         throw new Error("Event not found");
     }
     const data = eventSnapshot.data();
-    return {
+    return { 
         id: eventId,
         name: data.name || "Untitled",
         location: data.location || "Untitled",
