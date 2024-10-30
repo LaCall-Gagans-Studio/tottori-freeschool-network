@@ -68,7 +68,7 @@ const Home = () => {
         <div className="basis-1/12 lg:basis-auto lg:h-full w-full lg:w-1/6 order-2 lg:order-1">
           <Menu toggleView={toggleView} isMapView={isMapView} toggleTag={toggleTag} selectedTags={selectedTags} />
         </div>
-        <div className="basis-11/12 lg:basis-auto lg:h-full w-full lg:w-5/6 order-1 lg:order-2 bg-sky-300">
+        <div className="basis-11/12 lg:basis-auto lg:h-full w-full lg:w-5/6 order-1 lg:order-2 bg-sky-300 overflow-hidden">
           {isClient ? (
             isMapView ? <EventMap events={filteredEvents} /> : <EventList events={filteredEvents} />
           ) : (
