@@ -56,7 +56,10 @@ const Home = () => {
   };
 
   if (loading) {
-    return <div className='w-screen h-screen bg-[#f8fdee] flex flex-col items-center justify-center text-ws-primary'>読み込み中です</div>;
+    return <div className='w-screen h-screen bg-[#f8fdee] flex flex-col items-center gap-10 justify-center text-ws-primary'>
+            <img src='./common/logo.png' className='w-64 h-auto'/>
+            <p className=''>読み込み中です</p>
+          </div>;
   }
 
   return (
