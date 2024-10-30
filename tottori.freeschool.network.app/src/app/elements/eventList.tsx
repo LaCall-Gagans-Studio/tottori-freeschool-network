@@ -30,7 +30,13 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
 
     return (
         <div className="p-4 pt-12 h-[calc(100svh*11/12)] lg:h-full w-full mx-auto overflow-y-scroll">
-            <div className="w-full lg:max-w-[800px] lg:w-4/6 h-ull mx-auto grid grid-cols-1 gap-4 lg:gap-8 items-center">
+            <div className="w-full lg:max-w-[800px] lg:w-4/6 h-ull mx-auto grid grid-cols-1 gap-4 lg:gap-8 items-center relative">
+                
+                <div className="w-auto h-auto text-ws-black absolute top-6 text-center left-1/2 -translate-x-1/2 z-10">
+                    <p>おっと、何もないようです。</p>
+                    <p>絞り込みを解除してみてください。</p>
+                </div>
+
                 {events.map((event) => (
                     <div
                         key={event.id}
