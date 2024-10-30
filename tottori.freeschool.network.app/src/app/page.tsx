@@ -63,8 +63,8 @@ const Home = () => {
   }
 
   return (
-    <div className="w-screen lg:bg-[#f8fdee] font-zenGothic relative h-screen bg-yellow-500">
-      <div className="flex flex-col lg:flex-row w-full lg:h-screen h-auto bg-red-300 z-0">
+    <div className="w-screen lg:bg-[#f8fdee] font-zenGothic relative h-screen bg-yellow-500 overflow-y-hidden">
+      <div className="flex flex-col lg:flex-row w-full lg:h-screen h-auto bg-red-300 z-0 overflow-y-hidden">
         <div className="h-[calc(100svh*1/12)] lg:basis-auto lg:h-full w-full lg:w-1/6 order-2 lg:order-1">
           <Menu toggleView={toggleView} isMapView={isMapView} toggleTag={toggleTag} selectedTags={selectedTags} />
         </div>
