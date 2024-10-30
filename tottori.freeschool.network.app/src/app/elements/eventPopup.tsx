@@ -4,7 +4,6 @@
 import React, { useState, useEffect } from 'react';
 import { CiUser, CiLocationArrow1, CiForkAndKnife, CiClock1, CiCoins1, CiCalendarDate, CiSquareMore, CiFaceSmile, CiBookmarkCheck, CiStopwatch, CiMinimize1 } from "react-icons/ci";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 //components
 import { TimestampFormat, CustomText, TargetValueFormat, GoogleMapEmbed } from "../components/utilities";
@@ -118,7 +117,9 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
 
                             {/* features */}
                             <div className="mt-24 flex relative flex-col lg:flex-row">
-                                <div className="w-full lg:w-7/12"><CustomText text={selectedEvent.feature_long} /></div>
+                                <div className="w-full lg:w-7/12">
+                                    <CustomText text={selectedEvent.feature_long} />
+                                </div>
                                 <div className="w-11/12 lg:w-5/12 mx-auto lg:mx-0 flex flex-col justify-center items-center overflow-visible">
                                     {/* レーダーチャート */}
                                     <RadarChartFormat data={selectedEvent.feature_star}/>
@@ -175,7 +176,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                     <h6 className="text-sm lg:text-xl font-semibold">このフリースクールの<br className='lg:hidden'/>HPに行く</h6>               
                                     <p className="text-xs mt-2">外部リンクに飛びます</p>
                                 </a>
-                                <a className="h-full flex flex-col items-center justify-center px-3 text-center hover:bg-ws-primary hover:text-slate-50 cursor-pointer rounded-md text-ws-primary border-ws-primary border-2 transition-all duration-100">
+                                <a href='https://docs.google.com/forms/d/e/1FAIpQLSdLSt6eRfqxkhKIXissDbGS6GoreU-Fw-wGPY238exlaOG8Fw/viewform?usp=sf_link' className="h-full flex flex-col items-center justify-center px-3 text-center hover:bg-ws-primary hover:text-slate-50 cursor-pointer rounded-md text-ws-primary border-ws-primary border-2 transition-all duration-100">
                                     <h6 className="text-sm lg:text-xl font-semibold">まずは相談してみる</h6>     
                                     <p className="text-xs mt-2">お気軽に<br className='lg:hidden'/>お聞きください</p>           
                                     <p className="text-xs lg:mt-2 hidden lg:inline">フォームに<br className='lg:hidden'/>ご入力ください</p>
