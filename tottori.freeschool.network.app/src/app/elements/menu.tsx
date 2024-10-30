@@ -4,7 +4,7 @@ import OrgPopup from "./orgPopup";  // OrgPopup のインポート
 
 const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (tag: string) => void, selectedTags: string[] }> = ({ toggleView, isMapView, toggleTag, selectedTags }) => {
     const [isOrgPopupVisible, setIsOrgPopupVisible] = useState(false); // OrgPopup 表示用の state 追加
-    const tags = ["少人数(~10)", "大人数(11~)", "未就学児", "小学生", "中学生", "高校生", "20歳以上", "送迎あり", "給食あり", "合宿あり", "学習サポート", "受験対応", "東部", "中部", "西部", "認定あり",];  // 利用可能なタグ
+    const tags = ["少人数(~10)", "大人数(11~)", "未就学児", "小学生", "中学生", "高校生", "18歳以上", "送迎あり", "給食あり", "合宿あり", "学習サポート", "受験対応", "東部", "中部", "西部", "認定あり",];  // 利用可能なタグ
 
     const handleOrgPopupOpen = () => {
         setIsOrgPopupVisible(true); // ポップアップを開く
