@@ -45,7 +45,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                     >
                         <div className="h-full z-10 bg-[#f8fdee] pr-3 rounded-lg rounded-r-lg flex relative duration-300 group-hover:-translate-x-8 transition-all">
                             
-                            <img className="h-full w-1/4 rounded-l-lg border-l-2 border-ws-primary object-cover object-center" src={`./img/${event.img[0]}.webp`} />
+                            <img className="h-full w-1/4 rounded-l-lg border-l-2 border-ws-primary object-cover object-center" src={`./img/${event.img[0]}.webp`} alt="画像がありません"/>
 
                             <div className="ml-4 pr-3 py-2 w-3/4 rounded-r-lg relative overflow-hidden">
 
