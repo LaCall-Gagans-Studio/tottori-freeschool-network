@@ -151,5 +151,3 @@ export const GoogleMapEmbed: React.FC<{
         ></iframe>
     );
 };
-
-//

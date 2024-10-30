@@ -21,9 +21,9 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
             <div className="h-full lg:h-auto order-3 lg:order-1">
                 <img src="./common/logo.png" className="w-56 h-auto lg:w-full lg:h-auto"/>
                 <p className="my-2 text-lg text-ws-black hidden lg:block">鳥取県内のフリースクールを詳しくまとめています</p>
-                <ul className="my-3 text-sm text-ws-black list-disc list-inside gap-1 hidden lg:block">
-                    <li className="pl-2">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
-                    <li className="pl-2">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</li>
+                <ul className="my-3 text-sm text-ws-black gap-1 hidden lg:block">
+                    <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
+                    <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</li>
                 </ul>
             </div>
 

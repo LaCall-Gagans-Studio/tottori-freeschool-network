@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { CiUser, CiLocationArrow1, CiForkAndKnife, CiClock1, CiCoins1, CiCalendarDate, CiSquareMore, CiFaceSmile, CiBookmarkCheck, CiStopwatch, CiMinimize1 } from "react-icons/ci";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
+import { FaQuestionCircle } from 'react-icons/fa';
 
 //components
 import { TimestampFormat, CustomText, TargetValueFormat, GoogleMapEmbed } from "../components/utilities";
@@ -20,6 +21,7 @@ interface FirebaseEventPopupProps {
 
 const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose, detailsLoading }) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [isTooltipVisible, setIsTooltipVisible] = useState(false);//認定用ツールチップ
 
     // ポップアップが表示される時にアニメーションを開始
     useEffect(() => {
@@ -39,6 +41,8 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
     };
 
     if (!selectedEvent) return null;  //selectedEventがない場合は何も表示しない
+
+    
 
     return (
         <>
@@ -116,8 +120,8 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                             </div>
 
                             {/* features */}
-                            <div className="mt-24 flex relative flex-col lg:flex-row">
-                                <div className="w-full lg:w-7/12">
+                            <div className="flex relative flex-col lg:flex-row">
+                                <div className="w-full lg:w-7/12 mt-24 ">
                                     <CustomText text={selectedEvent.feature_long} />
                                 </div>
                                 <div className="w-11/12 lg:w-5/12 mx-auto lg:mx-0 flex flex-col justify-center items-center overflow-visible">
@@ -125,9 +129,9 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                     <RadarChartFormat data={selectedEvent.feature_star}/>
 
                                     {/* 可奈子ポイント */}
-                                    <div className='w-full lg:w-4/6 h-auto px-2 pb-3 bg-ws-gray rounded-md'>
+                                    <div className='w-full lg:w-4/6 h-auto px-2 pb-3 lg:pb-1 bg-ws-gray rounded-md'>
                                         <img src='./portfolio/kanako_anime.png' className='h-24 w-auto'/>
-                                        <p><CustomText text={selectedEvent.point} /></p>
+                                        <p className='text-sm'><CustomText text={selectedEvent.point} /></p>
                                     </div>
                                 </div>
                             </div>
@@ -151,11 +155,33 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                         <p>定員</p>
                                         <div className=" text-black">{selectedEvent.capacity}</div>
                                     </div>
-
-                                    <div className="border-ws-primary text-ws-primary pl-3 border-l-2 gap-2 flex items-center text-lg">
-                                        <CiBookmarkCheck  />
+                                    
+                                    <div className="border-ws-primary text-ws-primary pl-3 border-l-2 gap-2 flex items-center text-lg relative">
+                                        <CiBookmarkCheck />
                                         <p>認定の有無</p>
-                                        <div className=" text-black">{selectedEvent.certificate ? "認定済み" : "まだ認定されていません"}</div>
+                                        <div className="text-black">
+                                            {selectedEvent.certificate ? "認定済み" : "まだ認定されていません"}
+                                        </div>
+
+                                        {/* はてなマークアイコンとカスタムツールチップ */}
+                                        <div
+                                            className="ml-2 relative"
+                                            onMouseEnter={() => setIsTooltipVisible(true)}
+                                            onMouseLeave={() => setIsTooltipVisible(false)}
+                                        >
+                                            <FaQuestionCircle className="text-gray-500 cursor-pointer" />
+                                            {isTooltipVisible && (
+                                                <div className="absolute top-full left-0 mt-1 w-56 p-2 bg-ws-primary text-white text-xs rounded shadow-lg z-10">
+                                                    認定とは？<br />
+                                                    行政から補助金の交付対象となっているフリースクールのこと。<br />
+                                                    <br />
+                                                    認定を受けると、<br />
+                                                    ・公教育機関の出席扱いになる<br />
+                                                    ・学費の補助が受けられる<br />
+                                                    など、様々な利点があります。
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
 
                                     <div className="border-ws-primary text-ws-primary pl-3 border-l-2 gap-2 flex items-center text-lg">
