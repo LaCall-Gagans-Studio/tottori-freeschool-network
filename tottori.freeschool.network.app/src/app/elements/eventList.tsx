@@ -30,7 +30,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
 
     return (
         <div className="p-4 pt-12 h-[calc(100svh*11/12)] lg:h-full w-full mx-auto overflow-y-scroll">
-            <div className="w-full lg:w-4/6 h-full mx-auto grid grid-cols-1 gap-4 lg:gap-6 items-center justify-center">
+            <div className="w-full lg:w-4/6 h-full mx-auto grid grid-cols-1 gap-4 lg:gap-6 items-center mb-12 justify-center">
                 {events.map((event) => (
                     <div
                         key={event.id}

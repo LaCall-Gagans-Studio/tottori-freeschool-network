@@ -56,7 +56,7 @@ const Home = () => {
   };
 
   if (loading) {
-    return <div>Loading events...</div>;
+    return <div className='w-screen h-screen bg-[#f8fdee] flex flex-col items-center justify-center text-ws-primary'>読み込み中です</div>;
   }
 
   return (
