@@ -1,6 +1,9 @@
-// 'useState' と 'OrgPopup' のインポートを追加
+//library
 import React, { useState } from "react";
 import OrgPopup from "./orgPopup";  // OrgPopup のインポート
+
+//components
+import { RiExchange2Line } from "react-icons/ri";
 
 const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (tag: string) => void, selectedTags: string[] }> = ({ toggleView, isMapView, toggleTag, selectedTags }) => {
     const [isOrgPopupVisible, setIsOrgPopupVisible] = useState(false); // OrgPopup 表示用の state 追加
@@ -26,29 +29,30 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
             <div className="h-full lg:h-auto order-3 lg:order-1 flex lg:flex-col items-center lg:items-start">
                 <img src="./common/logo.png" className="h-auto w-64 grow lg:w-full lg:h-auto"/>
                 <p className="my-2 text-lg text-ws-black hidden lg:block">鳥取県内のフリースクールを詳しくまとめています</p>
-                <ul className="my-3 text-sm text-ws-black gap-1 hidden lg:block">
+                <ul className="my-1 text-sm text-ws-black gap-1 hidden lg:block">
                     <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
                     <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</li>
                 </ul>
             </div>
 
             {/* 表示切り替え */}
-            <div className="lg:mt-4 h-full lg:h-auto pl-2 order-1 lg:order-2 flex lg:flex-col items-center lg:items-start">
-                <h2 className="text-sm font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md text-ws-black text-nowrap hidden">表示</h2>
+            <div className="lg:mt-1 h-full lg:h-auto pl-2 order-1 lg:order-2 flex lg:flex-col items-center lg:items-start">
+                <h2 className="text-sm font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md ml-2 text-ws-black text-nowrap hidden lg:inline">表示</h2>
                 <button
                     onClick={toggleView}
-                    className="text-white text-xs lg:text-base rounded lg:flex flex-col lg:flex-row border border-ws-primary"
+                    className="text-white text-xs lg:text-base rounded-md lg:flex flex-col lg:flex-row border border-ws-primary"
                 >
-                    <div className={`${isMapView ? "bg-ws-primary" : "bg-ws-gray text-ws-black hidden lg:block"} py-2 px-3 rounded-l text-nowrap`}>マップ</div>
-                    <div className={`${isMapView ? "bg-ws-gray text-ws-black hidden lg:block" : "bg-ws-primary"} py-2 px-3 rounded-r text-nowrap`}>リスト</div>
+                    <div className={`${isMapView ? "bg-ws-primary" : "bg-ws-gray text-ws-black hidden lg:block"} py-2 px-2 lg:px-3 rounded-md lg:rounded-l text-nowrap`}>マップ<RiExchange2Line className="lg:hidden "/></div>
+                    <div className={`${isMapView ? "bg-ws-gray text-ws-black hidden lg:block" : "bg-ws-primary"} py-2 px-2 lg:px-3 rounded-md lg:rounded-r text-nowrap`}>リスト</div>
+                    
                 </button>
             </div>
 
             {/* 絞り込み */}
-            <div className="lg:mt-4 lg:pl-2 h-full lg:h-auto lg:w-full order-2 lg:order-3 flex items-center lg:flex-col">
+            <div className="lg:mt- lg:pl-2 h-full lg:h-auto lg:w-full order-2 lg:order-3 flex items-center lg:flex-col">
                 {/* 絞り込みボタン */}
                 <h2
-                    className="text-sm w-20 lg:w-full font-light my-1 lg:p-0 bg-ws-primary lg:bg-transparent py-2 px-3 lg:px-2 lg:py-1 rounded-md text-white lg:text-ws-black cursor-pointer"
+                    className="text-sm w-20 lg:w-full flex text-center items-center justify-center lg:items-start lg:justify-start font-light lg:my-1 lg:p-0 bg-ws-primary lg:bg-transparent p-2 lg:px-2 lg:py-1 rounded-md text-white lg:text-ws-black cursor-pointer"
                     onClick={openModal}
                 >
                     絞り込み
@@ -99,13 +103,14 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
             </div>
 
             {/* だれがやっている (ポップアップ表示ボタン) */}
-            <div className="mt-4 pl-2 w-full h-full lg:h-auto order-4 lg:order-4">
+            <div className="lg:pl-2 w-full h-full lg:h-auto order-4 lg:order-4 flex lg:flex-col items-center lg:items-start">
                 <h2 className="text-sm text-ws-black font-light my-1 hidden lg:block">運営者について</h2>
                 <button
                     onClick={handleOrgPopupOpen}
-                    className="text-white text-sm bg-ws-primary px-4 py-2 rounded hover:bg-ws-gray transition"
+                    className="text-white text-sm bg-ws-primary p-2 lg:px-4 lg:py-2 rounded hover:bg-ws-gray transition"
                 >
-                    詳しく見る
+                    <p className="hidden lg:inline">詳しく見る</p>
+                    <p className="lg:hidden text-ws-gray">運営情報</p>
                 </button>
             </div>
 
