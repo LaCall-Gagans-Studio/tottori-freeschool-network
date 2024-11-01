@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: "鳥取県内のフリースクールをどこよりも詳しくまとめて提供するサイトです。全てのフリースクールの情報提供を目指して活動しています。",
     images: [
       {
-        url: "/common/logo.png",
+        url: "/common/logo.webp",
         width: 600,
         height: 600,
         alt: "とっとりフリースクールネットワークのロゴ",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     site: "@username",
     title: "とっとりフリースクールネットワーク",
     description: "鳥取県内のフリースクールをどこよりも詳しく紹介するサイト。全てのフリースクールの情報提供を目指して活動しています。",
-    images: "/common/logo.png",
+    images: "/common/logo.webp",
   },
   robots: "index, follow",
 };
@@ -50,11 +50,7 @@ export default function RootLayout({
             "@type": "Organization",
             name: "とっとりフリースクールネットワーク",
             url: "https://tottori-yawaraka-infos.org",
-            logo: "/common/logo.png",
-            sameAs: [
-              "https://www.facebook.com/yourpage",
-              "https://twitter.com/yourpage",
-            ],
+            logo: "/common/logo.webp",
             description: "鳥取県内のフリースクールを詳しくまとめ、学びと支援を提供するネットワーク。",
           })}
         </script>

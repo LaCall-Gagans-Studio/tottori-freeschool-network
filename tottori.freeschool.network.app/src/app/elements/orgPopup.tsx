@@ -41,7 +41,7 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
                 >
                         <div className={`relative w-full lg:w-5/6 mx-auto justify-center content-center mt-24 flex flex-col items-center`}>
                             <div className='flex flex-col items-center'>
-                                <img src='./common/logo.png' className='w-auto h-24 lg:h-36'/>
+                                <img src='./common/logo.webp' className='w-auto h-24 lg:h-36'/>
                                 <p className='w-full lg:w-5/6 mt-14'>
                                     『とっとりフリースクールネットワーク』は、鳥取県にある<b>すべてのフリースクールの情報を掲載すること</b>を目指して活動しているプロジェクトです。<br />
                                     元教諭の３児の母と、不登校支援に携わる大学生が主に運営しています。<br />
