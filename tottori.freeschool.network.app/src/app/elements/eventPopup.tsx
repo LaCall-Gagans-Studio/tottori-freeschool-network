@@ -153,7 +153,9 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                     <div className="border-ws-primary text-ws-primary pl-3 border-l-2 gap-2 flex items-center text-lg">
                                         <CiFaceSmile  />
                                         <p>定員</p>
-                                        <div className=" text-black">{selectedEvent.capacity}</div>
+                                        <div className=" text-black">
+                                            {selectedEvent.capacity === 0 ? "定員上限なし" : selectedEvent.capacity}
+                                        </div>
                                     </div>
                                     
                                     <div className="border-ws-primary text-ws-primary pl-3 border-l-2 gap-2 flex items-center text-lg relative">
