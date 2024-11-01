@@ -52,7 +52,7 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
 
                             <h3 className=' mt-16'>▼下のような人たちが主に運営しています▼</h3>
                             <div className='mt-2 flex flex-col lg:flex-row w-full gap-6 lg:gap-0'>
-                                <StaffBox img='otani' name='三児の母 / 大谷 加奈子' 
+                                <StaffBox img='otani' name='三児の母 / 大谷 可奈子' 
                                     career={
                                         <>
                                             ３児の母。元養護教諭。産後うつ経験。<br />
