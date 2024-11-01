@@ -47,7 +47,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                             
                             <img className="h-full w-1/4 rounded-l-lg border-l-2 border-ws-primary object-cover object-center" src={`./img/${event.img[0]}.webp`} alt="画像がありません"/>
 
-                            <div className="ml-4 pr-3 pt-1 pb-2 w-3/4 rounded-r-lg relative overflow-hidden">
+                            <div className="ml-2 lg:ml-4 pr-3 pt-1 pb-2 w-3/4 rounded-r-lg relative overflow-hidden">
 
                                 {/* 名前 */}
                                 <h1 className="text-base lg:text-2xl font-bold text-ws-primary text-nowrap">{event.name}</h1>
