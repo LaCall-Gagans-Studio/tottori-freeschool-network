@@ -24,8 +24,10 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
 
     return (
         <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex justify-center items-center lg:items-start lg:justify-start gap-2 lg-gap-0 lg:flex-col z-50 ">
-            <div className="h-full lg:h-auto mt-5 order-3 lg:order-1 flex lg:flex-col items-center lg:items-start">
-                <img src="./common/logo.png" className="h-full w-auto grow lg:w-full lg:h-auto"/>
+            <div className="h-full lg:h-auto lg:mt-5 order-3 lg:order-1 flex lg:flex-col items-center lg:items-start">
+                {/* logo */}
+                <img src="./common/logo.png" className="h-12 w-auto lg:w-full lg:h-auto"/>
+
                 <p className="mb-2 mt-5 text-lg text-ws-black hidden lg:block cursor-default">鳥取県内のフリースクールを詳しくまとめています</p>
                 <ul className="my-1 text-sm text-ws-black gap-1 hidden lg:block cursor-default">
                     <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
@@ -40,8 +42,8 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                     onClick={toggleView}
                     className="text-white text-xs lg:text-base rounded-md lg:flex flex-col lg:flex-row border border-ws-primary"
                 >
-                    <div className={`${isMapView ? "bg-ws-primary" : "bg-ws-gray text-ws-black hidden lg:block"} py-2 px-2 lg:px-3 rounded-md lg:rounded-l text-nowrap`}>マップ<RiExchange2Line className="lg:hidden "/></div>
-                    <div className={`${isMapView ? "bg-ws-gray text-ws-black hidden lg:block" : "bg-ws-primary"} py-2 px-2 lg:px-3 rounded-md lg:rounded-r text-nowrap`}>リスト</div>
+                    <div className={`${isMapView ? "bg-ws-primary hidden lg:block" : "lg:bg-ws-gray bg-ws-primary lg:text-ws-black"} py-2 px-2 lg:px-3 rounded-md lg:rounded-l text-nowrap`}>マップ</div>
+                    <div className={`${isMapView ? "lg:bg-ws-gray bg-ws-primary lg:text-ws-black" : "bg-ws-primary hidden lg:block"} py-2 px-2 lg:px-3 rounded-md lg:rounded-r text-nowrap`}>リスト</div>
                     
                 </button>
             </div>
