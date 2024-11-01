@@ -37,7 +37,7 @@ export const CustomText: React.FC<{ text: string }> = ({ text }) => {
 
         // 番号付きリスト
         if (line.match(/^\d+\.\s/)) {
-            return { html: `<li class="list-decimal ml-6">${line}</li>`, preventBreak: true };
+            return { html: `<li class="list-none ml-6">${line}</li>`, preventBreak: true };
         }
 
         // 箇条書きリスト
