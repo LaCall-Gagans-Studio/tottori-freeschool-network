@@ -45,6 +45,11 @@ export const CustomText: React.FC<{ text: string }> = ({ text }) => {
             return { html: `<li class="list-disc ml-6">${line.substring(2)}</li>`, preventBreak: true };
         }
 
+        // リスト付属文章
+        if (line.startsWith('~ ')) {
+            return { html: `<li class="list-none ml-10">${line.substring(2)}</li>`, preventBreak: true };
+        }
+
         // コールアウト
         if (line.startsWith('> ')) {
             return { html: `<blockquote class="border-l-4 border-ws-primary pl-4 italic text-gray-700">${line.substring(2)}</blockquote>`, preventBreak: true };
