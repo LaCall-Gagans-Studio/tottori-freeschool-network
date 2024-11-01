@@ -15,8 +15,6 @@ export const DeleteRichText: React.FC<{ text: string }> = ({ text }) => {
         output = output.replace(/\\n/g, ' ');
         // '-' を削除
         output = output.replace(/-/g, '');
-        // '.' を削除
-        output = output.replace(/./g, '');
         // '~' を削除
         output = output.replace(/~/g, '');
         return output;
