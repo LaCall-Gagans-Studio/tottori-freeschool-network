@@ -51,7 +51,7 @@ export const CustomText: React.FC<{ text: string }> = ({ text }) => {
             return { html: `<li class="list-disc ml-6">${line.substring(2)}</li>`, preventBreak: true };
         }
 
-        // リスト付属文章
+        // リスト文章
         if (line.startsWith('~ ')) {
             return { html: `<li class="list-none ml-10">${line.substring(2)}</li>`, preventBreak: true };
         }
@@ -66,10 +66,17 @@ export const CustomText: React.FC<{ text: string }> = ({ text }) => {
             return { html: `<blockquote class="border-l-4 border-ws-primary pl-4 italic text-gray-700">${line.substring(2)}</blockquote>`, preventBreak: true };
         }
 
-        // それ以外のテキスト（通常のテキスト処理）
+        // 通常テキスト処理：太字、斜体、リンクの追加
         let newLine = line.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
         newLine = newLine.replace(/_(.*?)_/g, '<em>$1</em>');
-            return { html: newLine, preventBreak: false };
+
+        // カスタムリンク形式を検出して変換 [リンクテキスト](URL)
+        newLine = newLine.replace(
+            /\[([^\]]+)\]\((https?:\/\/[^\s]+)\)/g,
+            '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-ws-primary underline">$1</a>'
+        );
+
+        return { html: newLine, preventBreak: false };
     };
 
     return (
@@ -77,17 +84,18 @@ export const CustomText: React.FC<{ text: string }> = ({ text }) => {
             {processedText.map((line, index) => {
                 const { html, preventBreak } = replacePatterns(line);
                 return (
-                <React.Fragment key={index}>
-                    {/* 文字列をパターン置換してHTMLに変換 */}
-                    <span dangerouslySetInnerHTML={{ __html: html }} />
-                    {/* preventBreakがtrueでない場合のみ<br />を追加 */}
-                    {!preventBreak && index < processedText.length - 1 && <br />}
-                </React.Fragment>
+                    <React.Fragment key={index}>
+                        {/* 文字列をパターン置換してHTMLに変換 */}
+                        <span dangerouslySetInnerHTML={{ __html: html }} />
+                        {/* preventBreakがtrueでない場合のみ<br />を追加 */}
+                        {!preventBreak && index < processedText.length - 1 && <br />}
+                    </React.Fragment>
                 );
             })}
         </>
     );
 };
+
 
 
 //TimestampFormat

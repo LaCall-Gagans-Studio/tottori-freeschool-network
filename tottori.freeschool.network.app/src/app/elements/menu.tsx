@@ -1,6 +1,5 @@
 //library
 import React, { useState } from "react";
-import { RiExchange2Line } from "react-icons/ri";
 
 //components
 import OrgPopup from "./orgPopup";  // OrgPopup のインポート
@@ -40,16 +39,16 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                 <h2 className="text-sm font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md ml-2 text-ws-black text-nowrap hidden lg:inline cursor-default">表示</h2>
                 <button
                     onClick={toggleView}
-                    className="text-white text-xs lg:text-base rounded-md lg:flex flex-col lg:flex-row border border-ws-primary"
+                    className="text-white text-xs lg:text-base rounded-md lg:flex lg:flex-row border border-ws-primary"
                 >
-                    <div className={`${isMapView ? "bg-ws-primary hidden lg:block" : "lg:bg-ws-gray bg-ws-primary lg:text-ws-black"} py-2 px-2 lg:px-3 rounded-md lg:rounded-l text-nowrap`}>マップ</div>
-                    <div className={`${isMapView ? "lg:bg-ws-gray bg-ws-primary lg:text-ws-black" : "bg-ws-primary hidden lg:block"} py-2 px-2 lg:px-3 rounded-md lg:rounded-r text-nowrap`}>リスト</div>
+                    <div className={`${isMapView ? "bg-ws-primary hidden lg:block" : "lg:bg-ws-gray bg-ws-primary lg:text-ws-black"} px-2 py-[10px] lg:px-3 rounded-md lg:rounded-l text-nowrap`}>マップ</div>
+                    <div className={`${isMapView ? "lg:bg-ws-gray bg-ws-primary lg:text-ws-black" : "bg-ws-primary hidden lg:block"} px-2 py-[10px] lg:px-3 rounded-md lg:rounded-r text-nowrap`}>リスト</div>
                     
                 </button>
             </div>
 
             {/* 絞り込み */}
-            <div className="lg:mt- lg:pl-2 h-full lg:h-auto lg:w-full order-2 lg:order-3 flex items-center lg:flex-col">
+            <div className="lg:mt-1 lg:pl-2 h-full lg:h-auto lg:w-full order-2 lg:order-3 flex items-center lg:flex-col">
 
                 {/* 絞り込みボタン / lg~*/}
                 <h2

@@ -112,7 +112,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                             {/* quotation */}
                             <div className="bg-ws-gray w-full lg:w-10/12 mx-auto mt-12 relative p-6">
                                 <FaQuoteLeft className="absolute left-1"/>
-                                <p className="text-lg">
+                                <p className="text-base lg:text-lg">
                                     <CustomText text={selectedEvent.quotation} />
                                 </p>
                                 <FaQuoteRight className="absolute right-1"/>
