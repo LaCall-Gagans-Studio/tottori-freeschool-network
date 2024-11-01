@@ -112,36 +112,40 @@ export const TimestampFormat: React.FC<{ timestamp: any }> = ({ timestamp }) => 
 };
 
 
-//TargetValueFormat
+// TargetValueFormat
 export const TargetValueFormat: React.FC<{ target: string[] }> = ({ target }) => {
     const formatTarget = () => {
+        const hasPreschool = target.includes('N');
+        const hasAdult = target.includes('A');
         const elementary = target.filter(t => t.startsWith('E')).map(t => parseInt(t[1]));
         const middle = target.filter(t => t.startsWith('S')).map(t => parseInt(t[1]));
         const high = target.filter(t => t.startsWith('H')).map(t => parseInt(t[1]));
 
-        const formatRange = (arr: number[], prefix: string, gradePrefix: string, maxYear: number) => {
-            if (arr.length === 0) return "";
+        const formatRange = (arr: number[], gradePrefix: string) => {
+            if (arr.length === 0) return null;
             const min = Math.min(...arr);
             const max = Math.max(...arr);
-            if (min === 1 && max === maxYear) {
-                return `${prefix}`; // All years present, no parentheses
-            } else if (min === 1) {
-                return `${prefix}（～${gradePrefix}${max}）`;
-            } else if (max === maxYear) {
-                return `${prefix}（${gradePrefix}${min}~）`;
-            } else {
-                return `${prefix}（${gradePrefix}${min}~${gradePrefix}${max}）`;
-            }
+            return { start: `${gradePrefix}${min}`, end: `${gradePrefix}${max}` };
         };
 
-        const elementaryText = elementary.length > 0 ? formatRange(elementary, "小学生", "小", 6) : "";
-        const middleText = middle.length > 0 ? formatRange(middle, "中学生", "中", 3) : "";
-        const highText = high.length > 0 ? formatRange(high, "高校生", "高", 3) : "";
+        const ranges = [];
+        if (hasPreschool) ranges.push({ start: "未就学児", end: "未就学児" });
+        const elementaryRange = formatRange(elementary, "小");
+        const middleRange = formatRange(middle, "中");
+        const highRange = formatRange(high, "高");
+        if (elementaryRange) ranges.push(elementaryRange);
+        if (middleRange) ranges.push(middleRange);
+        if (highRange) ranges.push(highRange);
+        if (hasAdult) ranges.push({ start: "18歳以上", end: "18歳以上" });
 
-        // Combine the results and remove empty values
-        const result = [elementaryText, middleText, highText].filter(text => text).join(" / ");
+        // Ensure ranges are not empty before accessing start and end
+        if (ranges.length > 0) {
+            const overallStart = ranges[0]?.start;
+            const overallEnd = ranges[ranges.length - 1]?.end;
+            return `${overallStart} ~ ${overallEnd}`;
+        }
 
-        return result || "対象なし"; // Return "対象なし" if no levels are present
+        return "対象なし"; // Default if no levels are present
     };
 
     return <span>{formatTarget()}</span>;
