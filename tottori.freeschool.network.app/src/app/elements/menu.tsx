@@ -1,9 +1,9 @@
 //library
 import React, { useState } from "react";
-import OrgPopup from "./orgPopup";  // OrgPopup のインポート
+import { RiExchange2Line } from "react-icons/ri";
 
 //components
-import { RiExchange2Line } from "react-icons/ri";
+import OrgPopup from "./orgPopup";  // OrgPopup のインポート
 
 const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (tag: string) => void, selectedTags: string[] }> = ({ toggleView, isMapView, toggleTag, selectedTags }) => {
     const [isOrgPopupVisible, setIsOrgPopupVisible] = useState(false); // OrgPopup 表示用の state 追加
@@ -25,7 +25,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
     return (
         <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex justify-center items-center lg:items-start lg:justify-start gap-2 lg-gap-0 lg:flex-col z-50 ">
             <div className="h-full lg:h-auto mt-5 order-3 lg:order-1 flex lg:flex-col items-center lg:items-start">
-                <img src="./common/logo.png" className="h-auto w-64 grow lg:w-full lg:h-auto"/>
+                <img src="./common/logo.png" className="h-full w-auto grow lg:w-full lg:h-auto"/>
                 <p className="mb-2 mt-5 text-lg text-ws-black hidden lg:block cursor-default">鳥取県内のフリースクールを詳しくまとめています</p>
                 <ul className="my-1 text-sm text-ws-black gap-1 hidden lg:block cursor-default">
                     <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
