@@ -173,7 +173,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                         >
                                             <FaQuestionCircle className="text-gray-500 cursor-pointer" />
                                             {isTooltipVisible && (
-                                                <div className="absolute top-full left-0 mt-1 w-56 p-2 bg-ws-primary text-white text-xs rounded shadow-lg z-10">
+                                                <div className="absolute top-full lg:left-0 right-0 mt-1 w-56 p-2 bg-ws-primary text-white text-xs rounded shadow-lg z-10">
                                                     認定とは？<br />
                                                     行政から補助金の交付対象となっているフリースクールのこと。<br />
                                                     <br />
