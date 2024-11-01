@@ -42,6 +42,7 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-site-verification" content="F6aPhFzrcmNE0_vgJEbhk0u03n78Sgpt0j1noL26eYI" />
         <link rel="canonical" href="https://tottori-yawaraka-infos.org" />
         <script type="application/ld+json">
           {JSON.stringify({
