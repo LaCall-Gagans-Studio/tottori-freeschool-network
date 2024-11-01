@@ -23,13 +23,13 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
     };
 
     return (
-        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex gap-2 lg-gap-0 lg:flex-col z-50 ">
-            <p className="absolute -top-5 lg:relative">※サイトは現在作成中です</p>
+        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex justify-center items-center lg:items-start lg:justify-start gap-2 lg-gap-0 lg:flex-col z-50 ">
+            <p className="absolute -top-5 lg:relative cursor-default">※サイトは現在作成中です</p>
 
             <div className="h-full lg:h-auto order-3 lg:order-1 flex lg:flex-col items-center lg:items-start">
                 <img src="./common/logo.png" className="h-auto w-64 grow lg:w-full lg:h-auto"/>
-                <p className="my-2 text-lg text-ws-black hidden lg:block">鳥取県内のフリースクールを詳しくまとめています</p>
-                <ul className="my-1 text-sm text-ws-black gap-1 hidden lg:block">
+                <p className="my-2 text-lg text-ws-black hidden lg:block cursor-default">鳥取県内のフリースクールを詳しくまとめています</p>
+                <ul className="my-1 text-sm text-ws-black gap-1 hidden lg:block cursor-default">
                     <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
                     <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</li>
                 </ul>
@@ -37,7 +37,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
 
             {/* 表示切り替え */}
             <div className="lg:mt-1 h-full lg:h-auto pl-2 order-1 lg:order-2 flex lg:flex-col items-center lg:items-start">
-                <h2 className="text-sm font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md ml-2 text-ws-black text-nowrap hidden lg:inline">表示</h2>
+                <h2 className="text-sm font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md ml-2 text-ws-black text-nowrap hidden lg:inline cursor-default">表示</h2>
                 <button
                     onClick={toggleView}
                     className="text-white text-xs lg:text-base rounded-md lg:flex flex-col lg:flex-row border border-ws-primary"
@@ -50,9 +50,17 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
 
             {/* 絞り込み */}
             <div className="lg:mt- lg:pl-2 h-full lg:h-auto lg:w-full order-2 lg:order-3 flex items-center lg:flex-col">
-                {/* 絞り込みボタン */}
+
+                {/* 絞り込みボタン / lg~*/}
                 <h2
-                    className="text-sm w-20 lg:w-full flex text-center items-center justify-center lg:items-start lg:justify-start font-light lg:my-1 lg:p-0 bg-ws-primary lg:bg-transparent p-2 lg:px-2 lg:py-1 rounded-md text-white lg:text-ws-black cursor-pointer"
+                    className="text-sm w-20 hidden lg:flex lg:w-full text-center items-center justify-center lg:items-start lg:justify-start font-light lg:my-1 lg:p-0 bg-ws-primary lg:bg-transparent p-2 lg:px-2 lg:py-1 rounded-md text-white lg:text-ws-black cursor-default"
+                >
+                    絞り込み
+                </h2>
+
+                {/* 絞り込みボタン / ~lg */}
+                <h2
+                    className="text-sm w-20 lg:hidden flex text-center items-center justify-center lg:items-start lg:justify-start font-light lg:my-1 lg:p-0 bg-ws-primary lg:bg-transparent p-2 lg:px-2 lg:py-1 rounded-md text-white lg:text-ws-black cursor-pointer"
                     onClick={openModal}
                 >
                     絞り込み
@@ -65,7 +73,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                             key={tag}
                             onClick={() => toggleTag(tag)}
                             className={`text-white text-xs p-2 rounded mr-1 mb-1 inline hover:bg-ws-primary duration-300 ${
-                                selectedTags.includes(tag) ? "bg-ws-black" : "border-ws-primary border rounded-sm text-ws-black"
+                                selectedTags.includes(tag) ? "bg-ws-black" : "border-b-ws-primary border rounded-sm text-ws-black"
                             }`}
                         >
                             {tag}
@@ -77,7 +85,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                 {isModalOpen && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
                         <div className="bg-white p-4 rounded-md w-3/4 max-w-md">
-                            <h2 className="text-lg font-semibold mb-4 text-ws-black">絞り込みオプション</h2>
+                            <h2 className="text-lg font-semibold mb-4 text-ws-black cursor-default">絞り込みオプション</h2>
                             <div className="flex flex-wrap">
                                 {tags.map(tag => (
                                     <button
@@ -103,8 +111,8 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
             </div>
 
             {/* だれがやっている (ポップアップ表示ボタン) */}
-            <div className="lg:pl-2 w-full h-full lg:h-auto order-4 lg:order-4 flex lg:flex-col items-center lg:items-start">
-                <h2 className="text-sm text-ws-black font-light my-1 hidden lg:block">運営者について</h2>
+            <div className="lg:pl-2 w-auto text-nowrap lg:w-full h-full lg:h-auto order-4 lg:order-4 flex lg:flex-col items-center lg:items-start">
+                <h2 className="text-sm text-ws-black font-light my-1 hidden lg:block cursor-default ">運営者について</h2>
                 <button
                     onClick={handleOrgPopupOpen}
                     className="text-white text-sm bg-ws-primary p-2 lg:px-4 lg:py-2 rounded hover:bg-ws-gray transition"

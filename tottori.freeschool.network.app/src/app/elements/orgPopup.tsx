@@ -33,7 +33,7 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
 
     return (
         <>
-            <div className={`fixed h-[calc(100svh*11/12)] lg:h-full w-full lg:w-[calc(100vw*5/6)] overflow-y-scroll border-2 top-0 flex items-center right-0 justify-center z-50`}>
+            <div className={`fixed h-[calc(100svh*11/12)] lg:h-full w-full lg:w-[calc(100vw*5/6)] overflow-y-scroll border-2 top-0 flex items-center right-0 justify-center z-50 cursor-default`}>
                 <div
                     className={`absolute bg-white p-6 text-black h-screen w-full overflow-scroll transition-transform duration-300 ease-in-out ${
                         isVisible ? 'translate-x-0' : 'translate-x-full'

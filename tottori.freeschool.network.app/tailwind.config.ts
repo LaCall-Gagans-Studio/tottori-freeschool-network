@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      zenGothic: ["Zen Kaku Gothic New"],
+      zenGothic: ["Zen Kaku Gothic New"]
     },
     extend: {
       colors: {

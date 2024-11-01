@@ -29,7 +29,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
     };
 
     return (
-        <div className="p-4 pt-12 h-[calc(100svh*11/12)] lg:h-full w-full mx-auto overflow-y-scroll bg-[#f8fdee] lg:bg-transparent z-20">
+        <div className="p-4 pt-4 lg:pt-12 h-[calc(100svh*11/12)] lg:h-full w-full mx-auto overflow-y-scroll bg-[#f8fdee] lg:bg-transparent z-20">
             <div className="w-full lg:max-w-[800px] lg:w-4/6 h-auto mx-auto grid grid-cols-1 gap-6 lg:gap-8 items-center relative">
                 
                 <div className="w-auto text-nowrap text-sm lg:text-base h-auto text-ws-black absolute top-6 text-center left-1/2 -translate-x-1/2 z-10">
@@ -47,7 +47,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                             
                             <img className="h-full w-1/4 rounded-l-lg border-l-2 border-ws-primary object-cover object-center" src={`./img/${event.img[0]}.webp`} alt="画像がありません"/>
 
-                            <div className="ml-4 pr-3 py-2 w-3/4 rounded-r-lg relative overflow-hidden">
+                            <div className="ml-4 pr-3 pt-1 pb-2 w-3/4 rounded-r-lg relative overflow-hidden">
 
                                 {/* 名前 */}
                                 <h1 className="text-base lg:text-2xl font-bold text-ws-primary text-nowrap">{event.name}</h1>
@@ -57,14 +57,20 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                                 <h2 className="text-xs lg:text-sm w-full font-thin text-slate-600 text-nowrap group-hover:animate-marquee "><DeleteRichText text={event.eyecatch_long}/></h2>
 
                                 <div className="mt-2 flex flex-col gap-0.5">
+
+                                    {/* 対象 */}
                                     <div className="flex items-center gap-1">
                                         <CiUser className="text-ws-primary"/>
                                         <p className="text-xs lg:text-sm font-normal text-slate-400">{<TargetValueFormat target={event.target}/>}</p>
                                     </div>
+
+                                    {/* 住所 */}
                                     <div className="flex items-center gap-1">
                                         <CiLocationOn className="text-ws-primary"/>
                                         <p className="text-xs lg:text-sm font-normal text-slate-400 text-nowrap overflow-hidden">{event.address}</p>
                                     </div>
+
+                                    {/* タグ */}
                                     <div className="relative mt-2 mb-1 lg:my-0 lg:absolute lg:bottom-2 lg:right-1 text-[0.6rem] text-nowrap lg:text-xs font-thin flex flex-wrap lg:flex-nowrap gap-1 lg:gap-2 lg:font-semibold text-slate-600">
                                         {event.tag.map((tag) => (
                                             <p className="bg-ws-black px-1 py-1 rounded text-slate-50">
