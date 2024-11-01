@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "とっとりフリースクールネットワーク - 鳥取県内のフリースクール情報",
-  description: "鳥取県内のフリースクールをどこよりも詳しくまとめています。元教員の母と不登校支援の大学生が運営し、全てのフリースクールの情報を提供しています。",
+  description: "鳥取県内のフリースクールをどこよりも詳しくまとめています。元教員の母と不登校支援の大学生が運営し、全てのフリースクールの情報提供を目指して活動しています。",
   keywords: [
     "鳥取県", "フリースクール", "不登校支援", "教育支援", "学びの場", "子どもサポート", "地域活動", 
     "鳥取市", "米子市", "倉吉市", "鳥取", "まとめ", "不安", "教育機会", "自主学習", "学びの選択肢", 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://tottori-yawaraka-infos.org",
     title: "とっとりフリースクールネットワーク",
-    description: "鳥取県内のフリースクールをどこよりも詳しくまとめて提供するネットワーク。",
+    description: "鳥取県内のフリースクールをどこよりも詳しくまとめて提供するサイトです。全てのフリースクールの情報提供を目指して活動しています。",
     images: [
       {
         url: "/common/logo.png",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@username",
     title: "とっとりフリースクールネットワーク",
-    description: "鳥取県内のフリースクールをどこよりも詳しく紹介するサイト。",
+    description: "鳥取県内のフリースクールをどこよりも詳しく紹介するサイト。全てのフリースクールの情報提供を目指して活動しています。",
     images: "/common/logo.png",
   },
   robots: "index, follow",
