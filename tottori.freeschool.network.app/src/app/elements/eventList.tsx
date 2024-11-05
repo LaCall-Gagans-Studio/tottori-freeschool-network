@@ -43,7 +43,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                         className="h-44 relative rounded-lg shadow-md hover:shadow-xl group duration-300 cursor-pointer transition-shadow"
                         onClick={() => handleEventClick(event.id)} // Event click handler
                     >
-                        <div className="h-full z-10 bg-[#f8fdee] pr-3 rounded-lg rounded-r-lg flex relative duration-300 group-hover:-translate-x-4 lg:group-hover:-translate-x-8 transition-all">
+                        <div className="h-full z-10 bg-[#f8fdee] pr-3 rounded-lg rounded-r-lg flex relative duration-300 group-hover:-translate-x-1 lg:group-hover:-translate-x-8 transition-all">
                             
                             <img className="h-full w-1/3 lg:w-1/4 rounded-l-lg border-l-2 border-ws-primary object-cover object-center" src={`./img/${event.img[0]}.webp`} alt="画像がありません"/>
 
