@@ -76,7 +76,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
                                 </div>
 
                                 <div className="w-full lg:w-3/5 p-1 ml-2">
-                                    <h3 className="text-2xl mb-3">{selectedEvent.eyecatch_short}</h3>
+                                    <h1 className="text-2xl mb-3">{selectedEvent.eyecatch_short}</h1>
                                     <h3 className="text-base"><CustomText text={selectedEvent.eyecatch_long} /></h3>
                                 </div>
                             
@@ -130,7 +130,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose,
 
                                     {/* 可奈子ポイント */}
                                     <div className='w-full lg:w-4/6 h-auto px-2 pb-3 lg:pb-1 bg-ws-gray rounded-md'>
-                                        <img src='./portfolio/kanako_anime.png' className='h-24 w-auto'/>
+                                        <img src='./portfolio/kanako_anime.png' alt='可奈子ポイント' className='h-24 w-auto'/>
                                         <p className='text-sm'><CustomText text={selectedEvent.point} /></p>
                                     </div>
                                 </div>

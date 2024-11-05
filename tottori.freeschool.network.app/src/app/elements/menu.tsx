@@ -25,9 +25,9 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
         <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex justify-center items-center lg:items-start lg:justify-start gap-2 lg-gap-0 lg:flex-col z-50 ">
             <div className="h-full lg:h-auto lg:mt-5 order-1 lg:order-1 flex lg:flex-col items-center lg:items-start">
                 {/* logo */}
-                <img src="./common/logo.webp" className="h-12 w-auto lg:w-full lg:h-auto"/>
+                <img src="./common/logo.webp" alt="ロゴ" className="h-12 w-auto lg:w-full lg:h-auto"/>
 
-                <p className="mb-2 mt-5 text-lg text-ws-black hidden lg:block cursor-default">鳥取県内のフリースクールを詳しくまとめています</p>
+                <h1 className="mb-2 mt-5 text-lg text-ws-black hidden lg:block cursor-default">鳥取県内のフリースクールを詳しくまとめています</h1>
                 <ul className="my-1 text-sm text-ws-black gap-1 hidden lg:block cursor-default">
                     <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
                     <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</li>

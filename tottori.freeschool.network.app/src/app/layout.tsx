@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "/common/logo.webp",
         width: 600,
         height: 600,
-        alt: "とっとりフリースクールネットワークのロゴ",
+        alt: "ロゴ",
       },
     ],
   },
