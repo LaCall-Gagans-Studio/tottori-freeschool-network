@@ -12,8 +12,8 @@ const RadarChartFormat: React.FC<RadarChartProps> = ({ data }) => {
     const parsedData = data.map(item => {
         const [name, score] = item.split('=');
         return {
-        subject: name,
-        score: parseInt(score, 10),
+            subject: name,
+            score: parseInt(score, 10),
         };
     });
 

@@ -23,7 +23,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
 
     return (
         <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex justify-center items-center lg:items-start lg:justify-start gap-2 lg-gap-0 lg:flex-col z-50 ">
-            <div className="h-full lg:h-auto lg:mt-5 order-3 lg:order-1 flex lg:flex-col items-center lg:items-start">
+            <div className="h-full lg:h-auto lg:mt-5 order-1 lg:order-1 flex lg:flex-col items-center lg:items-start">
                 {/* logo */}
                 <img src="./common/logo.webp" className="h-12 w-auto lg:w-full lg:h-auto"/>
 
@@ -35,7 +35,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
             </div>
 
             {/* 表示切り替え */}
-            <div className="lg:mt-1 h-full lg:h-auto pl-2 order-1 lg:order-2 flex lg:flex-col items-center lg:items-start">
+            <div className="lg:mt-1 h-full lg:h-auto pl-2 order-2 lg:order-2 flex lg:flex-col items-center lg:items-start">
                 <h2 className="text-sm font-light my-1 lg:bg-transparent lg:p-0 bg-ws-gray px-2 py-1 rounded-md ml-2 text-ws-black text-nowrap hidden lg:inline cursor-default">表示</h2>
                 <button
                     onClick={toggleView}
@@ -48,7 +48,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
             </div>
 
             {/* 絞り込み */}
-            <div className="lg:mt-1 lg:pl-2 h-full lg:h-auto lg:w-full order-2 lg:order-3 flex items-center lg:flex-col">
+            <div className="lg:mt-1 lg:pl-2 h-full lg:h-auto lg:w-full order-3 lg:order-3 flex items-center lg:flex-col">
 
                 {/* 絞り込みボタン / lg~*/}
                 <h2
