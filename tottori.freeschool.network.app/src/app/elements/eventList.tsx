@@ -45,9 +45,9 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                     >
                         <div className="h-full z-10 bg-[#f8fdee] pr-3 rounded-lg rounded-r-lg flex relative duration-300 group-hover:-translate-x-4 lg:group-hover:-translate-x-8 transition-all">
                             
-                            <img className="h-full w-1/4 rounded-l-lg border-l-2 border-ws-primary object-cover object-center" src={`./img/${event.img[0]}.webp`} alt="画像がありません"/>
+                            <img className="h-full w-1/3 lg:w-1/4 rounded-l-lg border-l-2 border-ws-primary object-cover object-center" src={`./img/${event.img[0]}.webp`} alt="画像がありません"/>
 
-                            <div className="ml-2 lg:ml-4 pr-3 pt-1 pb-2 w-3/4 rounded-r-lg relative overflow-hidden">
+                            <div className="ml-2 lg:ml-4 pr-3 pt-1 pb-2 w-2/3 lg:w-3/4 rounded-r-lg relative overflow-hidden">
 
                                 {/* 名前 */}
                                 <h1 className="text-base lg:text-2xl font-bold text-ws-primary text-nowrap">{event.name}</h1>
@@ -71,7 +71,7 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                                     </div>
 
                                     {/* タグ */}
-                                    <div className="relative mt-2 mb-1 lg:my-0 lg:absolute lg:bottom-2 lg:right-1 text-[0.6rem] text-nowrap lg:text-xs font-thin flex flex-wrap lg:flex-nowrap gap-1 lg:gap-2 lg:font-semibold text-slate-600">
+                                    <div className="relative lg:h-auto mt-2 mb-1 lg:my-0 lg:absolute lg:bottom-2 lg:right-1 text-[0.6rem] text-nowrap lg:text-xs font-thin flex flex-wrap lg:flex-nowrap gap-1 lg:gap-2 lg:font-semibold text-slate-600">
                                         {event.tag.map((tag) => (
                                             <p className="bg-ws-black px-1 py-1 rounded text-slate-50">
                                                 {tag}

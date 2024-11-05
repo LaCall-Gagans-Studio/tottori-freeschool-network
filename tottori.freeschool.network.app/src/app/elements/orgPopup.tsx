@@ -63,13 +63,13 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
                             </div>
 
                             {/* sponsor */}
-                            <h3 className=' mt-16'>▼スポンサー▼</h3>
+                            <h3 className='mt-16 text-sm lg:text-base'>▼スポンサー▼</h3>
                             <p>現在募集中です。</p>
 
                             {/*  */}
 
                             {/* staff */}
-                            <h3 className=' mt-8'>▼下のような人たちが主に運営しています▼</h3>
+                            <h3 className='mt-8 text-sm lg:text-base'>▼下のような人たちが主に運営しています▼</h3>
                             <div className='mt-2 flex flex-col lg:flex-row w-full gap-6 lg:gap-0 text-sm lg:text-base'>
                                 <StaffBox img='otani' name='三児の母 / 大谷 可奈子' 
                                     career={
