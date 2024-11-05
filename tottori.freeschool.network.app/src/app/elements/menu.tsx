@@ -52,7 +52,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
 
                 {/* 絞り込みボタン / lg~*/}
                 <h2
-                    className="text-sm w-20 hidden lg:flex lg:w-full text-center items-center justify-center lg:items-start lg:justify-start font-light lg:my-1 lg:p-0 bg-ws-primary lg:bg-transparent p-2 lg:px-2 lg:py-1 rounded-md text-white lg:text-ws-black cursor-default"
+                    className="text-sm w-20 hidden lg:flex lg:w-full text-center items-center justify-center lg:items-start lg:justify-start font-light lg:p-0 bg-ws-primary lg:bg-transparent p-2 lg:px-2 lg:py-1 rounded-md text-white lg:text-ws-black cursor-default"
                 >
                     絞り込み
                 </h2>
