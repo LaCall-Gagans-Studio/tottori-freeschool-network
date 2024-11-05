@@ -39,19 +39,38 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
                         isVisible ? 'translate-x-0' : 'translate-x-full'
                     }`}
                 >
-                        <div className={`relative w-full lg:w-5/6 mx-auto justify-center content-center mt-24 flex flex-col items-center`}>
+                        <div className={`relative w-full lg:w-5/6 mx-auto justify-center content-center mt-20 flex flex-col items-center`}>
+
+                            {/* hero */}
                             <div className='flex flex-col items-center'>
-                                <img src='./common/logo.webp' alt='ロゴ' className='w-auto h-24 lg:h-36'/>
-                                <p className='w-full lg:w-5/6 mt-14'>
-                                    『とっとりフリースクールネットワーク』は、鳥取県にある<b>すべてのフリースクールの情報を掲載すること</b>を目指して活動しているプロジェクトです。<br />
-                                    元教諭の３児の母と、不登校支援に携わる大学生が主に運営しています。<br />
-                                    フリースクールの情報をまとめた後は、子ども食堂や養護学校、学童など、<br />
-                                    行政と民間が交わる部分である<b>『やわらかいインフラ』</b>の全てを集めることを目標に活動していく予定です。<br />
+
+                                <div className='flex flex-col lg:flex-row items-center lg:items-end gap-6 lg:gap-8'>
+                                    <img src='./common/logo.webp' alt='ロゴ' className='w-auto h-24 lg:h-36'/>
+                                    <a href='https://docs.google.com/forms/d/e/1FAIpQLSdLSt6eRfqxkhKIXissDbGS6GoreU-Fw-wGPY238exlaOG8Fw/viewform?usp=sf_link' className="h-20 lg:h-32 w-56 lg:w-auto flex flex-col items-center justify-center px-3 text-center hover:bg-ws-primary hover:text-slate-50 cursor-pointer rounded-md text-ws-primary border-ws-primary border-2 transition-all duration-100">
+                                        <h6 className="text-sm lg:text-xl font-semibold">相談してみる</h6>     
+                                        <p className="text-xs mt-2">お気軽にお聞きください</p>           
+                                        <p className="text-xs">フォームにご入力ください</p>
+                                    </a>    
+                                </div>
+                                
+                                <p className='w-full mt-14 text-center lg:text-start text-sm lg:text-base'>
+                                    『とっとりフリースクールネットワーク』は、<br />
+                                    鳥取県にある<b>すべてのフリースクールの情報を掲載すること</b>を目指して活動しているプロジェクトです。<br />
+                                    元教諭の３児の母と、<br className='lg:hidden'/>不登校支援に携わる大学生が主に運営しています。<br />
+                                    フリースクールの情報をまとめた後は、<br className='lg:hidden'/>子ども食堂や養護学校、学童など、<br />
+                                    行政と民間が交わる部分である<br className='lg:hidden'/><b>『やわらかいインフラ』</b><br className='lg:hidden'/>の全てを集めることを目標に活動していく予定です。<br />
                                 </p>
                             </div>
 
-                            <h3 className=' mt-16'>▼下のような人たちが主に運営しています▼</h3>
-                            <div className='mt-2 flex flex-col lg:flex-row w-full gap-6 lg:gap-0'>
+                            {/* sponsor */}
+                            <h3 className=' mt-16'>▼スポンサー▼</h3>
+                            <p>現在募集中です。</p>
+
+                            {/*  */}
+
+                            {/* staff */}
+                            <h3 className=' mt-8'>▼下のような人たちが主に運営しています▼</h3>
+                            <div className='mt-2 flex flex-col lg:flex-row w-full gap-6 lg:gap-0 text-sm lg:text-base'>
                                 <StaffBox img='otani' name='三児の母 / 大谷 可奈子' 
                                     career={
                                         <>
