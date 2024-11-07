@@ -59,6 +59,7 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
                                     元教諭の３児の母と、<br className='lg:hidden'/>不登校支援に携わる大学生が主に運営しています。<br />
                                     フリースクールの情報をまとめた後は、<br className='lg:hidden'/>子ども食堂や養護学校、学童など、<br />
                                     行政と民間が交わる部分である<br className='lg:hidden'/><b>『やわらかいインフラ』</b><br className='lg:hidden'/>の全てを集めることを目標に活動していく予定です。<br />
+                                    （2024.11.02 始動）
                                 </p>
                             </div>
 
