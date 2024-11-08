@@ -24,10 +24,10 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
     };
 
     return (
-        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex justify-center items-center lg:items-start lg:justify-start gap-2 lg-gap-0 lg:flex-col z-50 ">
+        <div className="w-full h-[calc(100svh*1/12)] overflow-hidden lg:overflow-y-scroll lg:h-screen bottom-0 lg:relative mx-auto bg-ws-gray px-2 flex justify-center items-center lg:items-start lg:justify-start gap-2 lg-gap-0 lg:flex-col z-50 lg:pb-16">
             <div className="h-full lg:h-auto lg:mt-5 order-1 lg:order-1 flex lg:flex-col items-center lg:items-start">
                 {/* logo */}
-                <a href="/"><img src="/common/logo.webp" alt="ロゴ" className="h-12 w-auto lg:w-full lg:h-auto"/></a>
+                <a href="/" className="hover:scale-105 duration-300" ><img src="/common/logo.webp" alt="ロゴ" className="h-12 w-auto lg:w-full lg:h-auto"/></a>
 
                 <h1 className="mb-2 mt-5 text-lg text-ws-black hidden lg:block cursor-default">鳥取県内のフリースクールを詳しくまとめています</h1>
                 <ul className="my-1 text-sm text-ws-black gap-1 hidden lg:block cursor-default">
