@@ -4,6 +4,7 @@ import "./globals.css";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tottori-yawaraka-infos.org"),
   title: "とっとりフリースクール情報ネットワーク - 鳥取県内のフリースクール情報まとめ",
   description: "鳥取県内のフリースクール情報を最も詳しくまとめたサイト。元教員の母と不登校支援の大学生が運営し、フリースクールの特徴やサポート内容を網羅。保護者や学生に役立つ最新情報をお届けします。",
   keywords: [
