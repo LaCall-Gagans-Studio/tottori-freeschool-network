@@ -13,7 +13,7 @@ import EventPopupWrapper from './elements/eventPopupWrapper';
 import Body from "./elements/body";
 
 const Home = () => {
-  const [isClient, setIsClient] = useState(false);
+  
   const [isMapView, setIsMapView] = useState(false);
   const [events, setEvents] = useState<Partial<Event>[]>([]); 
   const [filteredEvents, setFilteredEvents] = useState<Partial<Event>[]>([]);
@@ -21,13 +21,6 @@ const Home = () => {
   const [collectionName, setCollectionName] = useState<"events" | "afterday" | null>(null);  // 初期値をnullに変更
 
   const navigate = useNavigate();
-
-  // クライアントサイドでのみ実行されるコンポーネント
-  useEffect(() => {
-    if (typeof document !== 'undefined') {
-      setIsClient(true);
-    }
-  }, []);
 
   useEffect(() => {
     // 初期ロード時に`sessionStorage`からパスを取得してリダイレクト
@@ -90,24 +83,19 @@ const Home = () => {
             />
           </div>
           <div className="h-[calc(100svh*11/12)] lg:basis-auto lg:h-full w-full lg:w-5/6 order-1 lg:order-2 overflow-hidden">
-            {isClient ? (
-              <Routes>
-                {/* ホームページ */}
-                <Route path="/" element={<Body setCollectionName={setCollectionName} />} />
-                
-                {/* ネットワークページ */}
-                <Route path="/network/:collection" element={<NetworkDisplay isMapView={isMapView} setCollectionName={setCollectionName} events={events} filteredEvents={filteredEvents} />} />
+            
+            <Routes>
+              {/* ホームページ */}
+              <Route path="/" element={<Body setCollectionName={setCollectionName} />} />
+              
+              {/* ネットワークページ */}
+              <Route path="/network/:collection" element={<NetworkDisplay isMapView={isMapView} setCollectionName={setCollectionName} events={events} filteredEvents={filteredEvents} />} />
 
-                {/* ネットワーク詳細ページ */}
-                <Route path="/network/:collection/:id" element={<EventPopupWrapper />} />
+              {/* ネットワーク詳細ページ */}
+              <Route path="/network/:collection/:id" element={<EventPopupWrapper />} />
 
-                {/* 未定義のパスを NotFound コンポーネントに */}
-                {/* <Route path="*"  element={<NotFound />} /> */}
+            </Routes>
 
-              </Routes>
-            ) : (
-              <div>Loading client data...</div>
-            )}
           </div>
         </div>
     </div>
