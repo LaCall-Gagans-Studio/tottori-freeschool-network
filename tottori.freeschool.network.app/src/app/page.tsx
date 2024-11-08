@@ -9,7 +9,7 @@ import { filters as afterDayFilters } from "./components/db/afterday";
 import { Event } from "./components/db/freeschool";
 import EventList from "./elements/eventList";
 import EventMap from "./elements/eventMap";
-import EventPopupWrapper from './elements/EventPopupWrapper ';
+import EventPopupWrapper from './elements/eventPopupWrapper';
 import Body from "./elements/body";
 
 const Home = () => {

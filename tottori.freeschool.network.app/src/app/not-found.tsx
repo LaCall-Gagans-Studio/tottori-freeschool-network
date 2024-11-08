@@ -7,6 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function NotFoundPage() {
+    sessionStorage.setItem('path', location.pathname);
     location.replace('/');
 
     return (
