@@ -1,6 +1,8 @@
+'use client'
+
 import Head from "next/head";
 import "./globals.css";
-import App from "next/app";
+import App from "./app";
 
 export default function RootLayout() {
   return (
