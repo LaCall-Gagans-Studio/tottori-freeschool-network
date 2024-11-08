@@ -28,6 +28,8 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose 
             setTimeout(() => {
                 setIsVisible(true);
             }, 50);  // 少し遅延を入れることでアニメーションがスムーズに表示される
+
+            
         }
     }, [selectedEvent]);
 
@@ -46,6 +48,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose 
     return (
         <>
             <div className={`fixed w-full lg:w-[calc(100vw*5/6)] h-[calc(100svh*11/12)] lg:h-full top-0 flex items-center right-0 justify-center z-50 transition-all duration-1000 cursor-default`}>
+
                 <div
                     className={`absolute bg-white p-6 text-black h-full w-full overflow-y-scroll transition-transform duration-300 ease-in-out ${
                         isVisible ? 'translate-x-0' : 'translate-x-full'

@@ -1,17 +1,13 @@
-// EventPopupWrapper.tsx
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getEventDetails } from "../components/eventsService";
 import EventPopup from "./eventPopup";
 import { Event } from "../components/db/freeschool";
 
-interface EventPopupWrapperProps {
-    onClose?: () => void;  // onCloseをオプションに変更
-}
-
-const EventPopupWrapper: React.FC<EventPopupWrapperProps> = ({ onClose }) => {
+const EventPopupWrapper: React.FC = () => {
     const { collection, id } = useParams<{ collection: "events" | "afterday"; id: string }>();
-    const [ selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+    const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchEventDetails = async () => {
@@ -23,8 +19,14 @@ const EventPopupWrapper: React.FC<EventPopupWrapperProps> = ({ onClose }) => {
         fetchEventDetails();
     }, [collection, id]);
 
+    const handleClose = () => {
+        if (collection) {
+            navigate(`/network/${collection}`);
+        }
+    };
+
     return selectedEvent ? (
-        <EventPopup selectedEvent={selectedEvent} onClose={onClose || (() => {})} />
+        <EventPopup selectedEvent={selectedEvent} onClose={handleClose} />
     ) : null;
 };
 
