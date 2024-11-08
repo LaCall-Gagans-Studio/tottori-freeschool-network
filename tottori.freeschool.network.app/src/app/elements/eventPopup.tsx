@@ -7,10 +7,9 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
 import { FaQuestionCircle } from 'react-icons/fa';
 
 //components
-import { TimestampFormat, CustomText, TargetValueFormat, GoogleMapEmbed } from "../components/utilities";
+import { TimestampFormat, CustomText, TargetValueFormat, GoogleMapEmbed, Accordion } from "../components/utilities";
 import ImageCarousel from "../components/imageCarousel";
 import RadarChartFormat from "../components/radarChartFormat";
-import { Accordion } from '../components/contentTemps';
 import { Event } from "./../components/db/freeschool";
 
 interface FirebaseEventPopupProps {

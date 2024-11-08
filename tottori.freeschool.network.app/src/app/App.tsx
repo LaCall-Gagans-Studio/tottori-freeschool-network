@@ -1,5 +1,5 @@
-// App.tsx
 'use client';
+// app.tsx
 
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -11,7 +11,7 @@ const App = () => {
     // クライアントサイドでのみ実行されるコンポーネント
     useEffect(() => {
         if (typeof document !== 'undefined') {
-        setIsClient(true);
+            setIsClient(true);
         }
     }, []);
 
@@ -25,7 +25,10 @@ const App = () => {
                     </Routes>
                 </Router>
             ) : (
-                <div>Loading client data...</div>
+                <div className='inset-0 bg-ws-gray w-screen h-screen flex flex-col items-center justify-center gap-6 mx-auto'>
+                    <img src='/common/logo.webp' className='w-96 h-auto' />
+                    <p className='text-black'>読み込み中...</p>
+                </div>
             )}
         </>
     );

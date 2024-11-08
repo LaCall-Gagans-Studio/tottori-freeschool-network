@@ -1,7 +1,7 @@
 import Head from "next/head";
 import type { Metadata } from "next";
 import "./globals.css";
-import App from './App'; // App コンポーネントをインポート
+import App from "./app";
 
 export const metadata: Metadata = {
   title: "とっとりフリースクール情報ネットワーク - 鳥取県内のフリースクール情報まとめ",
@@ -35,11 +35,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout() {
   return (
     <html lang="ja">
       <Head>
@@ -60,7 +56,7 @@ export default function RootLayout({
           }}
         />
       </Head>
-      <body>
+      <body className="bg-slate-50">
         <App /> {/* App コンポーネントをルートとして呼び出す */}
       </body>
     </html>

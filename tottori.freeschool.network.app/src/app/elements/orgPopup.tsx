@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { CiMinimize1 } from "react-icons/ci";
 
 //components
-import { StaffBox } from '../components/contentTemps';
+import { StaffBox } from '../components/utilities';
 
 interface OrgPopupProps {
     onClose: () => void;

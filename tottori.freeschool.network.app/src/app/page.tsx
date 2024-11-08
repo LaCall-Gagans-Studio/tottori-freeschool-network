@@ -1,16 +1,20 @@
 'use client';
 
-import { BrowserRouter as Router, Routes, Route, useParams,useNavigate  } from 'react-router-dom';
+// library
+import { Routes, Route, useNavigate  } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+
+// components
 import Menu from "./elements/menu";
+import EventPopupWrapper from './elements/eventPopupWrapper';
+import Body from "./elements/body";
+import NetworkDisplay from './elements/networkDisplay';
+
+// components - db
+import { Event } from "./components/db/freeschool";
 import { getEvents } from "./components/eventsService";
 import { filters as freeSchoolFilters } from "./components/db/freeschool";
 import { filters as afterDayFilters } from "./components/db/afterday";
-import { Event } from "./components/db/freeschool";
-import EventList from "./elements/eventList";
-import EventMap from "./elements/eventMap";
-import EventPopupWrapper from './elements/eventPopupWrapper';
-import Body from "./elements/body";
 
 const Home = () => {
   
@@ -89,7 +93,7 @@ const Home = () => {
               <Route path="/" element={<Body setCollectionName={setCollectionName} />} />
               
               {/* ネットワークページ */}
-              <Route path="/network/:collection" element={<NetworkDisplay isMapView={isMapView} setCollectionName={setCollectionName} events={events} filteredEvents={filteredEvents} />} />
+              <Route path="/network/:collection" element={<NetworkDisplay isMapView={isMapView} setCollectionName={setCollectionName} filteredEvents={filteredEvents} />} />
 
               {/* ネットワーク詳細ページ */}
               <Route path="/network/:collection/:id" element={<EventPopupWrapper />} />
@@ -103,25 +107,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// NetworkDisplay コンポーネントの作成
-const NetworkDisplay: React.FC<{ isMapView: boolean; setCollectionName: (name: "events" | "afterday") => void; events: Partial<Event>[]; filteredEvents: Partial<Event>[] }> = ({ isMapView, setCollectionName, events, filteredEvents }) => {
-  const { collection } = useParams<{ collection: "events" | "afterday" }>();
-
-  // collectionNameをURLパラメータに基づいて設定
-  useEffect(() => {
-    if (collection === "events" || collection === "afterday") {
-      setCollectionName(collection);
-    }
-  }, [collection, setCollectionName]);
-
-  return (
-    <>
-      {isMapView ? (
-        <EventMap events={filteredEvents} />
-      ) : (
-        collection && <EventList events={filteredEvents} collectionName={collection} />
-      )}
-    </>
-  );
-};
