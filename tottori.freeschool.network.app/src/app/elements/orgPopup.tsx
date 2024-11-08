@@ -45,7 +45,7 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
                             <div className='flex flex-col items-center'>
 
                                 <div className='flex flex-col lg:flex-row items-center lg:items-end gap-6 lg:gap-8'>
-                                    <img src='./common/logo.webp' alt='ロゴ' className='w-auto h-24 lg:h-36'/>
+                                    <img src='/common/logo.webp' alt='ロゴ' className='w-auto h-24 lg:h-36'/>
                                     <a href='https://docs.google.com/forms/d/e/1FAIpQLSdLSt6eRfqxkhKIXissDbGS6GoreU-Fw-wGPY238exlaOG8Fw/viewform?usp=sf_link' className="h-20 lg:h-32 w-56 lg:w-auto flex flex-col items-center justify-center px-3 text-center hover:bg-ws-primary hover:text-slate-50 cursor-pointer rounded-md text-ws-primary border-ws-primary border-2 transition-all duration-100">
                                         <h6 className="text-sm lg:text-xl font-semibold">お問い合わせ</h6>     
                                         <p className="text-xs mt-2">お気軽にお聞きください</p>           

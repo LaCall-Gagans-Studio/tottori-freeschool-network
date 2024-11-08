@@ -6,14 +6,13 @@ import { divIcon, LatLngTuple } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 // components
-import { FirebaseEvent } from "../components/eventsService"; 
 import FlyToUserLocation from "../components/flyToUserLocation";  // カスタムコンポーネントをインポート
 
 // interface
 interface LeafletMapProps {
     center: LatLngTuple;
     zoom: number;
-    events: FirebaseEvent[];
+    events: any;
     onMarkerClick: (eventId: string) => void;
     userLocation: LatLngTuple | null;  // ユーザーの位置を受け取る
 }
@@ -38,7 +37,7 @@ const LeafletMap: React.FC<LeafletMapProps> = ({ center, zoom, events, onMarkerC
             {/* ユーザーの位置が取得されたら自動的に飛ぶ */}
             <FlyToUserLocation userLocation={userLocation} zoom={zoom + 4} />
 
-            {events.map((event) => (
+            {events.map((event:any) => (
                 <Marker
                     key={event.id}
                     position={[event.location.latitude, event.location.longitude] as LatLngTuple}

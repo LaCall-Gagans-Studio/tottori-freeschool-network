@@ -1,15 +1,16 @@
+import Head from "next/head";
 import type { Metadata } from "next";
 import "./globals.css";
+import App from './App'; // App コンポーネントをインポート
 
 export const metadata: Metadata = {
   title: "とっとりフリースクール情報ネットワーク - 鳥取県内のフリースクール情報まとめ",
   description: "鳥取県内のフリースクール情報を最も詳しくまとめたサイト。元教員の母と不登校支援の大学生が運営し、フリースクールの特徴やサポート内容を網羅。保護者や学生に役立つ最新情報をお届けします。",
   keywords: [
-    "鳥取県", "フリースクール", "まとめ",  "不登校支援", "教育支援", "学びの場", "子どもサポート", "地域活動", 
+    "鳥取県", "フリースクール", "まとめ", "不登校支援", "教育支援", "学びの場", "子どもサポート", "地域活動", 
     "鳥取市", "米子市", "倉吉市", "鳥取", "不安", "教育機会", "自主学習", "学びの選択肢", 
     "支援ネットワーク", "フリースクールの一覧", "親の会", "教育サポート", "フリースクールガイド", "子どもの学び場"
   ],
-  
   openGraph: {
     type: "website",
     url: "https://tottori-yawaraka-infos.org",
@@ -36,28 +37,31 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ja">
-      <head>
+      <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="EzH28jpTZShqeDUipsnA9Hjd5yTcKMGEPQQ4hkPLjFU" />
         <link rel="canonical" href="https://tottori-yawaraka-infos.org" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "とっとりやわらか情報",
-            url: "https://tottori-yawaraka-infos.org",
-            logo: "/common/logo.webp",
-            description: "鳥取県内のフリースクール情報を最も詳しくまとめたサイト。元教員の母と不登校支援の大学生が運営し、フリースクールの特徴やサポート内容を網羅。保護者や学生に役立つ最新情報をお届けします。",
-          })}
-        </script>
-      </head>
-      <body className={``}>
-        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "とっとりやわらか情報",
+              url: "https://tottori-yawaraka-infos.org",
+              logo: "/common/logo.webp",
+              description: "鳥取県内のフリースクール情報を最も詳しくまとめたサイト。元教員の母と不登校支援の大学生が運営し、フリースクールの特徴やサポート内容を網羅。保護者や学生に役立つ最新情報をお届けします。",
+            }),
+          }}
+        />
+      </Head>
+      <body>
+        <App /> {/* App コンポーネントをルートとして呼び出す */}
       </body>
     </html>
   );
