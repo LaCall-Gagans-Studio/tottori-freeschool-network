@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './app';
+import Home from './home';
 
 const App = () => {
     const [isClient, setIsClient] = useState(false);
