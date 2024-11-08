@@ -1,7 +1,7 @@
 import Head from "next/head";
 import type { Metadata } from "next";
 import "./globals.css";
-import App from "next/app";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "とっとりフリースクール情報ネットワーク - 鳥取県内のフリースクール情報まとめ",
@@ -35,7 +35,11 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-export default function RootLayout() {
+type RootLayoutProps = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="ja">
       <Head>
@@ -57,7 +61,7 @@ export default function RootLayout() {
         />
       </Head>
       <body className="bg-slate-50">
-        <App />
+      {children}
       </body>
     </html>
   );
