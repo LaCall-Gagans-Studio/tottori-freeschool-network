@@ -1,6 +1,6 @@
 //library
 import React, { useState } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 //components
 import { MenuLinkElements } from "../components/utilities";

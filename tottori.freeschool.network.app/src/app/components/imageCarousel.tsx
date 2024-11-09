@@ -54,7 +54,7 @@ interface ImageSliderProps {
                         key={index}
                         src={`/img/${img}.webp`}
                         alt={`Slide ${index}`}
-                        className="px-1 py-1 rounded text-slate-50 w-auto min-h-96 object-cover object-center"
+                        className="px-1 py-1 rounded text-slate-50 w-auto min-h-96 object-cover object-top"
                         />
                     ))}
                 </div>

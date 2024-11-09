@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     }, []); // useEffectによりクライアントサイドのみで実行
 
     return (
-        <div className='inset-0 flex-col justify-center items-center bg-ws-gray text-black w-screen h-screen'>
+        <div className=' flex-col justify-center items-center bg-ws-gray text-black w-screen h-screen'>
             <p>対象ページにリダイレクトしています…</p>
         </div>
     );

@@ -68,7 +68,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose 
                     
                         {/* images and eyecatch */}
                         <div className="flex mt-6 flex-col lg:flex-row">
-                            <div className="w-full lg:w-1/2 h-56 lg:h-96">
+                            <div className="w-full lg:w-1/2 h-72 lg:h-96">
                                 <ImageCarousel images={selectedEvent.img}/>
                             </div>
 

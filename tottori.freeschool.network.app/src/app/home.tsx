@@ -1,16 +1,16 @@
 'use client';
 
 // library
-import { Routes, Route, useNavigate  } from 'react-router-dom';
+import { Routes, Route, useNavigate,useLocation   } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
 // components
 import Menu from "./elements/menu";
-import EventPopupWrapper from './elements/eventPopupWrapper';
 import Body from "./elements/body";
-import NetworkDisplay from './elements/networkDisplay';
-import Org from './elements/org'; // OrgPopupをインポート
-import Roadmap from './elements/roadmap'; // OrgPopupをインポート
+const EventPopupWrapper = React.lazy(() => import('./elements/eventPopupWrapper'));
+const NetworkDisplay = React.lazy(() => import('./elements/networkDisplay'));
+const Org = React.lazy(() => import('./elements/org'));
+const Roadmap = React.lazy(() => import('./elements/roadmap'));
 
 // components - db
 import { Event } from "./components/db/freeschool";
@@ -37,6 +37,17 @@ const Home = () => {
       sessionStorage.removeItem('path'); // 使用後にクリア
     }
   }, [navigate]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if the URL matches `/network/{collection}`
+    const pathParts = location.pathname.split('/');
+    if (pathParts[1] === 'network' && pathParts[2]) {
+      const collection = pathParts[2];
+      setCollectionName(collection === 'events' || collection === 'afterday' ? collection : null);
+    }
+  }, [location]);
   
 
   // イベントデータの取得（collectionNameがnullでないときのみ実行）
