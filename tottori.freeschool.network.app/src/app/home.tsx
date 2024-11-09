@@ -9,6 +9,8 @@ import Menu from "./elements/menu";
 import EventPopupWrapper from './elements/eventPopupWrapper';
 import Body from "./elements/body";
 import NetworkDisplay from './elements/networkDisplay';
+import Org from './elements/org'; // OrgPopupをインポート
+import Roadmap from './elements/roadmap'; // OrgPopupをインポート
 
 // components - db
 import { Event } from "./components/db/freeschool";
@@ -96,6 +98,12 @@ const Home = () => {
 
               {/* ネットワーク詳細ページ */}
               <Route path="/network/:collection/:id" element={<EventPopupWrapper />} />
+
+              {/* 運営者情報ページ */}
+              <Route path="/about" element={<Org />} />
+
+              {/* ロードマップ */}
+              <Route path="/roadmap" element={<Roadmap />} />
 
             </Routes>
 

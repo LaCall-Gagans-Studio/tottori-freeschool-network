@@ -134,7 +134,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose 
                         </div>
                     
                         {/* schedule, cost, events */}
-                        <div className="mt-12 lg:mt-24 flex flex-col gap-8 lg:gap-10">
+                        <div className="mt-12 text-sm lg:text-base lg:mt-24 flex flex-col gap-8 lg:gap-10">
                             <Accordion icon={CiClock1} title='時間割' text={<CustomText text={selectedEvent.timetable} />} />
                             <Accordion icon={CiCoins1} title='費用' text={<CustomText text={selectedEvent.cost} />} />
                             <Accordion icon={CiCalendarDate} title='行事など' text={<CustomText text={selectedEvent.events} />} />
@@ -150,7 +150,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose 
                                 <div className="border-ws-primary text-ws-primary pl-3 border-l-2 gap-2 flex items-center text-lg">
                                     <CiFaceSmile  />
                                     <p>定員</p>
-                                    <div className=" text-black">
+                                    <div className=" text-black text-sm lg:text-base ">
                                         {selectedEvent.capacity === 0 ? "定員上限なし" : selectedEvent.capacity}
                                     </div>
                                 </div>
@@ -158,7 +158,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose 
                                 <div className="border-ws-primary text-ws-primary pl-3 border-l-2 gap-2 flex items-center text-lg relative">
                                     <CiBookmarkCheck />
                                     <p>認定の有無</p>
-                                    <div className="text-black">
+                                    <div className="text-black text-sm lg:text-base ">
                                         {selectedEvent.certificate ? "認定済み" : "まだ認定されていません"}
                                     </div>
 
@@ -186,7 +186,7 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose 
                                 <div className="border-ws-primary text-ws-primary pl-3 border-l-2 gap-2 flex items-center text-lg">
                                     <CiStopwatch />
                                     <p>設立年月日</p>
-                                    <div className=" text-black"><TimestampFormat timestamp={selectedEvent.build_date} /></div>
+                                    <div className=" text-black text-sm lg:text-base "><TimestampFormat timestamp={selectedEvent.build_date} /></div>
                                 </div>
                             </div>
                         </div>

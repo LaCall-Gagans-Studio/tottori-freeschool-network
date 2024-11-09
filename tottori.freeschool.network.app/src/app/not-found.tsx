@@ -14,9 +14,8 @@ export const metadata: Metadata = {
     }, []); // useEffectによりクライアントサイドのみで実行
 
     return (
-        <div style={{ textAlign: 'center', padding: '50px' }}>
-            <h1>404 - ページが見つかりません</h1>
-            <p>トップページにリダイレクトします…</p>
+        <div className='inset-0 flex-col justify-center items-center bg-ws-gray text-black w-screen h-screen'>
+            <p>対象ページにリダイレクトしています…</p>
         </div>
     );
 }

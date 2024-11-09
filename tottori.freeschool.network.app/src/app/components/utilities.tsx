@@ -178,7 +178,7 @@ export const GoogleMapEmbed: React.FC<{
 
 
 // StaffBox
-export const StaffBox: React.FC<{ img: string, name: string, career: ReactNode, message: ReactNode }> = ({ img, name, career, message }) => {
+export const StaffBox: React.FC<{ img: string, name: string, post: string, role: ReactNode, career: ReactNode, message: ReactNode }> = ({ img, name, post, role, career, message }) => {
 
     return (
         <>
@@ -186,17 +186,41 @@ export const StaffBox: React.FC<{ img: string, name: string, career: ReactNode, 
                 <img src={`/portfolio/${img}.webp`} className='w-11/12 h-64 object-cover object-center'/>
                 <h2 className='font-bold mt-1'>{name}</h2>
                 <div className='w-11/12'>
+                    <h2 className='font-bold text-sm mt-4'>役職</h2>
+                    <h6>{post}</h6>
+            
+                    <h2 className='font-bold text-sm mt-4'>担当</h2>
+                    <h6>{role}</h6>  
 
-                    <p className='font-bold text-sm mt-4'>メッセージ</p>
+                    <h2 className='font-bold text-sm mt-4'>メッセージ</h2>
                     <h6>{message}</h6>
 
-                    <p className='font-bold text-sm mt-4'>経歴・生い立ち</p>
+                    <h2 className='font-bold text-sm mt-4'>経歴・生い立ち</h2>
                     <h6 className=''>{career}</h6>
 
                 </div>
                 
             </div>
         </>
+    );
+};
+
+
+// menuLinkElements
+import { Link } from "react-router-dom";
+export const MenuLinkElements: React.FC<{
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>, 
+    url: string,
+    body: string
+}> = ({ icon: Icon, url, body }) => {
+    return (
+        <Link
+            to={url}
+            className="flex gap-3 items-center text-sm border border-b-ws-primary px-4 py-2 rounded hover:bg-ws-primary hover:text-white transition group duration-100"
+        >
+            {Icon && <Icon className="text-black group-hover:text-white" />}
+            <p className="text-black group-hover:text-white">{body}</p>
+        </Link>
     );
 };
 

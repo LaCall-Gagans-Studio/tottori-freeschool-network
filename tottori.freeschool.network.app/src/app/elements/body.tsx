@@ -11,7 +11,7 @@ interface BodyProps {
 
     // Button data array
     const buttonData = [
-        { label: 'フリースクール', id: 'events', description:'', href:'common/freeschool.webp'},
+        { label: 'フリースクール', id: 'events', description:'民間の教育機関', href:'common/freeschool.webp'},
         // { label: '児童発達支援・放デイ', id: 'afterday', description: '準備中です' }
     ];
 
@@ -58,11 +58,13 @@ interface BodyProps {
                         <button
                             key={button.id}
                             onClick={() => handleClick(button.id as "events" | "afterday")}
-                            className='w-64 h-64 text-base rounded-full hover:bg-ws-gray flex flex-col border border-ws-primary hover:border-none items-center gap-0 hover:-translate-y-2 transition-all duration-200'
+                            className='w-64 h-64 relative text-base z-10 rounded-full flex flex-col items-center justify-center gap-0 hover:-translate-y-2 transition-all duration-200 shadow-2xl hover:border-ws-primary hover:border hover:shadow-ws-primary hover:shadow-2xl group'
                         >
-                            {button.href? ( <img src={button.href} className='w-48 h-auto object-cover'/>): (<></>)}
-                            {button.label}
-                            {button.description? ( <><br /><p className='text-xs'>{button.description}</p></>): (<></>)}
+                            <img src={button.href} className='absolute -z-10 w-full h-full inset-0 rounded-full overflow-hidden object-cover'/>
+                            <div className='border-2 border-ws-gray group-hover:border-ws-primary px-6 py-2 bg-white group-hover:bg-ws-primary bg-opacity-50 group-hover:bg-opacity-100'>
+                                <h2 className='text-xl'>{button.label}</h2>
+                                <p className='text-xs'>{button.description}</p>
+                            </div>
                         </button>
                     ))}
                 </div>

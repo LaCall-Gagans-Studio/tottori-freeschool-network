@@ -2,16 +2,11 @@
 
 //library
 import React, { useState, useEffect } from 'react';
-import { CiMinimize1 } from "react-icons/ci";
 
 //components
 import { StaffBox } from '../components/utilities';
 
-interface OrgPopupProps {
-    onClose: () => void;
-}
-
-const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
+const Org: React.FC = ({ }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     // ポップアップが表示される時にアニメーションを開始
@@ -22,20 +17,11 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
         }, 50);  // 少し遅延を入れることでアニメーションがスムーズに表示される
     });
 
-    const handleClose = () => {
-        setIsVisible(false); // アニメーションをトリガー
-        setTimeout(() => {
-            onClose(); // アニメーション終了後にコンテンツを閉じる
-        }, 100);  // アニメーション時間を待ってからポップアップを閉じる
-    };
-
-    if (!onClose) return null;  //selectedEventがない場合は何も表示しない
-
     return (
         <>
-            <div className={`fixed h-[calc(100svh*11/12)] lg:h-full w-full lg:w-[calc(100vw*5/6)] overflow-y-scroll border-2 top-0 flex items-center right-0 justify-center z-50 cursor-default`}>
+            <div className={`fixed h-[calc(100svh*11/12)] bg-white lg:h-full w-full lg:w-[calc(100vw*5/6)] overflow-y-scroll border-2 top-0 flex items-center right-0 justify-center z-50 cursor-default`}>
                 <div
-                    className={`absolute bg-white p-6 text-black h-screen w-full overflow-scroll transition-transform duration-300 ease-in-out ${
+                    className={`absolute p-6 text-black h-screen w-full transition-transform duration-300 ease-in-out ${
                         isVisible ? 'translate-x-0' : 'translate-x-full'
                     }`}
                 >
@@ -73,6 +59,13 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
                             <h3 className='mt-8 text-sm lg:text-base'>▼下のような人たちが主に運営しています▼</h3>
                             <div className='mt-2 flex flex-col lg:flex-row w-full gap-6 lg:gap-0 text-sm lg:text-base'>
                                 <StaffBox img='otani' name='三児の母 / 大谷 可奈子' 
+                                    post={"共同代表"}
+                                    role={
+                                        <>
+                                            サブスタンス
+                                            <p className='text-xs text-slate-500'>情報収集、相談対応、記事執筆など</p>
+                                        </>
+                                    }
                                     career={
                                         <>
                                             ３児の母。元養護教諭。産後うつ経験。<br />
@@ -99,6 +92,13 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
                                         </>
                                     } />
                                 <StaffBox img='akashi' name='大学生 / 明石 到真' 
+                                    post={"共同代表"}
+                                    role={
+                                        <>
+                                            ロジスティクス
+                                            <p className='text-xs text-slate-500'>データ構造化、プロセス設計、渉外など</p>
+                                        </>
+                                    }
                                     career={
                                         <>
                                             鳥取県内の高校を卒業後、欧州に二年滞在。<br />
@@ -125,14 +125,8 @@ const OrgPopup: React.FC<OrgPopupProps> = ({ onClose }) => {
                         </div>
                 </div>
             </div>
-            <button
-                className={`bg-ws-black text-white py-2 px-4 rounded fixed top-3 right-3 z-50 flex gap-1 h-10 items-center group ${isVisible ? "block" : "hidden"}`}
-                onClick={handleClose}
-            >
-                <CiMinimize1 className='h-5 w-auto group-hover:scale-95 duration-200 transition-all'/>閉じる
-            </button>
         </>
 
 )}
 
-export default OrgPopup;
+export default Org;

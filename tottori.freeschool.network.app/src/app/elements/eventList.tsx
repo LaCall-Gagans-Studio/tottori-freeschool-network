@@ -1,13 +1,16 @@
 "use client";
 
-//library
-import { useLocation } from 'react-router-dom';
+// library
+import { useLocation, useNavigate } from 'react-router-dom';
 import React, { useState, useRef, useEffect } from "react";
-import { CiLocationOn, CiUser } from "react-icons/ci";
-import { useNavigate } from "react-router-dom";
 
-//components
+// icon
+import { CiLocationOn, CiUser } from "react-icons/ci";
+
+// components
 import { DeleteRichText, TargetValueFormat } from "../components/utilities";
+
+// db
 import { Event } from "./../components/db/freeschool";
 
 interface EventListProps {
@@ -45,9 +48,18 @@ const EventList: React.FC<EventListProps> = ({ events, collectionName }) => {
         <div ref={scrollRef}  className="p-4 pt-4 lg:pt-12 h-[calc(100svh*11/12)] lg:h-full w-full mx-auto overflow-y-scroll bg-[#f8fdee] lg:bg-transparent z-20">
             <div className="w-full lg:max-w-[800px] lg:w-4/6 h-auto mx-auto grid grid-cols-1 gap-6 lg:gap-8 items-center relative">
                 
+                {/* 読み込み中・データなしのメッセージ */}
                 <div className="w-auto text-nowrap text-sm lg:text-base h-auto text-ws-black absolute top-6 text-center left-1/2 -translate-x-1/2 z-10">
-                    <p>おっと、何もないようです。</p>
-                    <p>絞り込みを解除してみてください。</p>
+                    {events.length === 0 ? (
+                        <>
+                            <p>おっと、何もないようです。</p>
+                            <p>絞り込みを解除してみてください。</p>
+                        </>
+                    ) : (
+                        <>
+                            <p>読み込み中です。</p>
+                        </>
+                    )}
                 </div>
 
                 {events.map((event) => (
