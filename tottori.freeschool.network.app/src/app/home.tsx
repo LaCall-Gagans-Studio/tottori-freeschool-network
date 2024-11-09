@@ -29,7 +29,6 @@ const Home = () => {
   useEffect(() => {
     // 初期ロード時に`sessionStorage`からパスを取得してリダイレクト
     const savedPath = sessionStorage.getItem('path');
-    console.log(savedPath);
     
     if (savedPath) {
       navigate(savedPath); // 保存されたパスにリダイレクト
