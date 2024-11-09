@@ -1,5 +1,6 @@
 import Head from "next/head";
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { ReactNode } from "react";
 
@@ -56,11 +57,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="EzH28jpTZShqeDUipsnA9Hjd5yTcKMGEPQQ4hkPLjFU" />
         <link rel="canonical" href="https://tottori-yawaraka-infos.org" />
-        <script 
+        <Script
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredSchema) }}
-        >
-        </script>
+        />
 
       </Head>
       <body className="bg-slate-50">
