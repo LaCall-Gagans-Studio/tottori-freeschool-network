@@ -15,6 +15,8 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
     const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);//絞り込み用モーダル
     const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);//運営情報用モーダル
 
+    
+
     const location = useLocation();
     const isNetworkPath = location.pathname.startsWith("/network");
 

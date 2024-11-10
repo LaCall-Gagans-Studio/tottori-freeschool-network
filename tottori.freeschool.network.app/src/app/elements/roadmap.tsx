@@ -14,12 +14,12 @@ const Roadmap: React.FC = () => {
 
     const roadmapData = [
         { date: "2024.09.27", title: "プロジェクト開始", description: "共同代表2人が出会い、意気投合" },
-        { date: "2024.10.06", title: "フリースクール情報の集積を開始", description: "鳥取県内のフリースクールの情報を集積し始める" },
-        { date: "2024.11.01", title: "ウェブサイト公開", description: "『やわらかいインフラ』の最初として、フリースクール情報を集めたウェブサイトを公開。" },
+        { date: "2024.10.06", title: "フリースクール情報の集積を開始", description: "鳥取県内のフリースクールの情報を収集し始める" },
+        { date: "2024.11.01", title: "ウェブサイト公開", description: "『とっとりフリースクールネットワーク』の最初として、フリースクール情報を集めたウェブサイトを公開。" },
         { date: "2024.11.02", title: "イベントにパネル展示", description: "鳥取市で行われた<a href='https://b8lgs.hp.peraichi.com/' class='text-ws-primary underline'>『多様な学びの映画祭』</a>にて、サイトを紹介" },
         { date: "Now", title: "現在進行中", description: "プロジェクトが継続され、新しい情報やパートナーシップを追求中です。" },
-        { date: "2024.xx.xx", title: "新たな情報の集積", description: "新たな集積対象として、子ども食堂や養護学校などを追加予定。" },
-        { date: "202x.xx.xx", title: "目標達成", description: "鳥取県内のすべての「やわらかいインフラ」情報を網羅。" },
+        { date: "2024.xx.xx", title: "新たな情報の集積", description: "子放課後等デイサービスなどの情報を追加予定。" },
+        { date: "202x.xx.xx", title: "目標達成", description: "『誰ひとり取り残さない社会』の実現に向かって情報をまとめていきます" },
         
     ];
 
