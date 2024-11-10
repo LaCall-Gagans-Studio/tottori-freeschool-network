@@ -33,7 +33,7 @@ const Body: React.FC = () => {
     };
 
     return (
-        <div className="h-[calc(100svh*11/12)] lg:h-full w-full mx-auto bg-white overflow-x-hidden text-black overflow-y-scroll">
+        <div className="h-[calc(100svh*11/12)] lg:h-full w-full mx-auto bg-white overflow-x-hidden text-black overflow-y-scroll cursor-default" >
             
             {/* hero */}
             <section className="relative h-[calc(100svh*11/12)] lg:h-full flex items-center justify-center bg-cover bg-center bg-hero-pattern">
