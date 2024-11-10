@@ -28,8 +28,8 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                 <a href="/" className="hover:scale-105 duration-300"><img src="/common/logo.webp" alt="ロゴ" className="max-h-12 h-full w-auto lg:max-h-none lg:w-full lg:h-auto"/></a>
                 <h1 className="mb-2 mt-5 text-lg text-ws-black hidden lg:block cursor-default">鳥取県内のフリースクールを詳しくまとめています</h1>
                 <ul className="my-1 text-sm text-ws-black gap-1 hidden lg:block cursor-default">
-                    <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</li>
-                    <li className="pl-2 border-l-2 border-ws-primary my-2 ml-1">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</li>
+                    <h3 className="pl-2 border-l-2 border-ws-primary my-2 ml-1">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</h3>
+                    <h3 className="pl-2 border-l-2 border-ws-primary my-2 ml-1">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</h3>
                 </ul>
             </div>
 
@@ -40,7 +40,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                     
                     {/* lg以上 */}
                     <div className="hidden lg:flex flex-col">
-                        <h2 className="text-sm text-ws-black font-light my-1 hidden lg:block cursor-default ">一覧</h2>
+                        <p className="text-sm text-ws-black font-light my-1 hidden lg:block cursor-default ">一覧</p>
                         <MenuLinkElements icon={IoSchoolOutline} url={'/network/events'} body={'フリースクールの一覧'} />
                     </div>
 
@@ -48,7 +48,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                     {isNetworkModalOpen && (
                         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
                             <div className="bg-white p-4 rounded-md w-3/4 max-w-md">
-                                <h2 className="text-lg font-semibold mb-4 text-ws-black cursor-default">一覧</h2>
+                                <p className="text-lg font-semibold mb-4 text-ws-black cursor-default">一覧</p>
                                 <MenuLinkElements icon={IoSchoolOutline} url={'/network/events'} body={'フリースクールの一覧'} />
                                 <button onClick={() => setIsNetworkModalOpen(false)} className="mt-4 bg-ws-primary text-white p-2 rounded-md w-full">閉じる</button>
                             </div>
@@ -81,7 +81,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                     {/* lg以上 */}
                     <div className="hidden lg:block">
                         {filters.map((tag) => (
-                            <button
+                            <h3
                                 key={tag}
                                 onClick={() => toggleTag(tag)}
                                 className={`text-white text-xs p-2 rounded mr-1 mb-1 inline hover:bg-ws-primary duration-300 ${
@@ -89,7 +89,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                                 }`}
                             >
                                 {tag}
-                            </button>
+                            </h3>
                         ))}
                     </div>
 
@@ -97,7 +97,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                     {isFilterModalOpen && (
                         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
                             <div className="bg-white p-4 rounded-md w-3/4 max-w-md">
-                                <h2 className="text-lg font-semibold mb-4 text-ws-black cursor-default">絞り込みオプション</h2>
+                                <h3 className="text-lg font-semibold mb-4 text-ws-black cursor-default">絞り込みオプション</h3>
                                 <div className="flex flex-wrap">
                                     {filters.map((tag) => (
                                         <button
@@ -124,7 +124,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                 
                 {/* lg以上 */}
                 <div className="hidden lg:flex flex-col">
-                    <h2 className="text-sm text-ws-black font-light my-1 hidden lg:block cursor-default ">運営情報</h2>
+                    <p className="text-sm text-ws-black font-light my-1 hidden lg:block cursor-default ">運営情報</p>
                     <MenuLinkElements icon={GoOrganization} url={'/about'} body={'運営者'} />
                     <MenuLinkElements icon={SiForgejo} url={'/roadmap'} body={'ロードマップ'} />
                 </div>
@@ -133,7 +133,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                 {isAboutModalOpen && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
                         <div className="bg-white p-4 rounded-md w-3/4 max-w-md">
-                            <h2 className="text-lg font-semibold mb-4 text-ws-black cursor-default">運営者情報</h2>
+                            <p className="text-lg font-semibold mb-4 text-ws-black cursor-default">運営者情報</p>
                             <MenuLinkElements icon={GoOrganization} url={'/about'} body={'運営者'} />
                             <MenuLinkElements icon={SiForgejo} url={'/roadmap'} body={'ロードマップ'} />
                             <button onClick={() => setIsAboutModalOpen(false)} className="mt-4 bg-ws-primary text-white p-2 rounded-md w-full">閉じる</button>

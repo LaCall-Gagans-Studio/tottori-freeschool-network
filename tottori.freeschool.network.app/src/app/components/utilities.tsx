@@ -219,7 +219,7 @@ export const MenuLinkElements: React.FC<{
             className="flex gap-3 items-center text-sm border border-b-ws-primary px-4 py-2 rounded hover:bg-ws-primary hover:text-white transition group duration-100"
         >
             {Icon && <Icon className="text-black group-hover:text-white" />}
-            <p className="text-black group-hover:text-white">{body}</p>
+            <h3 className="text-black group-hover:text-white">{body}</h3>
         </Link>
     );
 };

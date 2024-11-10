@@ -45,9 +45,9 @@ const Body: React.FC = () => {
                     <h1 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight text-ws-black text-nowrap">
                         不登校は、不幸じゃない
                     </h1>
-                    <p className="text-base lg:text-xl mb-8 font-light bg-ws-primary px-2">
+                    <h2 className="text-base lg:text-xl mb-8 font-light bg-ws-primary px-2">
                         不登校や行きしぶりへの不安を<br className='lg:hidden'/>一緒に軽減していくサイトです
-                    </p>
+                    </h2>
                     <a
                         href="#"
                         onClick={handleScrollClick}
@@ -63,14 +63,14 @@ const Body: React.FC = () => {
             <div className='w-full flex flex-col items-center mx-auto gap-6 mt-12'>
                 <div id='concept' className='flex flex-col lg:flex-col justify-center items-center gap-4 lg:gap-16 mx-6'>
                     <img src='common/logo.webp' alt='再読み込みしてください'  className='h-24 lg:h-36 w-auto'/>
-                    <p className='text-sm lg:text-base text-center'>
+                    <h3 className='text-sm lg:text-base text-center'>
                         『とっとりフリースクールネットワーク』は、<br />
                         鳥取県にある<b>すべてのフリースクールの情報を掲載すること</b>を目指して活動しているプロジェクトです。<br />
                         元教諭の３児の母と、<br className='lg:hidden'/>不登校支援に携わる大学生が主に運営しています。<br />
                         フリースクール情報の他にも、相談窓口、保護者コミュニティの場、他の専門機関の紹介ページなど、<br />
                         不登校や行きしぶりへの不安が軽減されていくコンテンツを随時追加していく予定です。<br />
                         （2024.11.02 始動）
-                    </p>
+                    </h3>
                 </div>
             </div>
 
@@ -79,7 +79,7 @@ const Body: React.FC = () => {
                 <h1 className='text-slate-500 my-4'>お知らせ・最新情報</h1>
                 <ul className='flex flex-col justify-start gap-2 text-xs lg:text-sm'>
                     {newsData.map((news) => (
-                        <li 
+                        <h3 
                             key={news.id}
                             className='cursor-pointer relative flex gap-8 rounded-sm px-2 py-1 hover:-translate-x-5 duration-500 border-l-2 border-ws-primary'
                             onClick={() => navigate(news.link)}
@@ -87,7 +87,7 @@ const Body: React.FC = () => {
                             {news.date}
                             {news.title}
                             <div className='absolute top-1/2 -translate-y-1/2 right-0'></div>
-                        </li>
+                        </h3>
                     ))}
                 </ul>
                 <BsThreeDotsVertical className='text-slate-500 my-5'/>
@@ -106,7 +106,7 @@ const Body: React.FC = () => {
                             <img src={button.href} alt='再読み込みしてください'  className='absolute -z-10 w-full h-full inset-0 rounded-full overflow-hidden object-cover'/>
                             <div className='border-2 border-ws-gray group-hover:border-ws-primary px-6 py-2 bg-white group-hover:bg-ws-primary bg-opacity-50 group-hover:bg-opacity-100'>
                                 <h2 className='text-xl'>{button.label}</h2>
-                                <p className='text-xs'>{button.description}</p>
+                                <h3 className='text-xs'>{button.description}</h3>
                             </div>
                         </button>
                     ))}
