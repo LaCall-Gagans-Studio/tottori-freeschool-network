@@ -102,7 +102,7 @@ const Home = () => {
             
             <Routes>
               {/* ホームページ */}
-              <Route path="/" element={<Body setCollectionName={setCollectionName} />} />
+              <Route path="/" element={<Body />} />
               
               {/* ネットワークページ */}
               <Route path="/network/:collection" element={<NetworkDisplay isMapView={isMapView} setCollectionName={setCollectionName} filteredEvents={filteredEvents} />} />
