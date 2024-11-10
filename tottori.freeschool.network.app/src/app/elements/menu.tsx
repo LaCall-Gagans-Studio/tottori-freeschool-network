@@ -81,7 +81,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                     {/* lg以上 */}
                     <div className="hidden lg:block">
                         {filters.map((tag) => (
-                            <h3
+                            <button
                                 key={tag}
                                 onClick={() => toggleTag(tag)}
                                 className={`text-white text-xs p-2 rounded mr-1 mb-1 inline hover:bg-ws-primary duration-300 ${
@@ -89,7 +89,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                                 }`}
                             >
                                 {tag}
-                            </h3>
+                            </button>
                         ))}
                     </div>
 
