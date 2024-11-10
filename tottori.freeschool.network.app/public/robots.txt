@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://tottori-yawaraka-infos.org
+
+# Sitemaps
+Sitemap: https://tottori-yawaraka-infos.org/sitemap.xml
