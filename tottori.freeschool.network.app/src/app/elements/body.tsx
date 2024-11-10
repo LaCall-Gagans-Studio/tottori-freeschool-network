@@ -38,7 +38,7 @@ const Body: React.FC = () => {
             {/* hero */}
             <section className="relative h-[calc(100svh*11/12)] lg:h-full flex items-center justify-center bg-cover bg-center bg-hero-pattern">
                 {/* Overlay */}
-                <img src='https://cdn.pixabay.com/photo/2023/07/05/20/12/ai-generated-8109142_1280.jpg' className="absolute inset-0 bg-black h-full object-cover opacity-100"></img>
+                <img src='https://cdn.pixabay.com/photo/2023/07/05/20/12/ai-generated-8109142_1280.jpg' alt='再読み込みしてください'  className="absolute inset-0 bg-black h-full object-cover opacity-100"></img>
 
                 {/* Content */}
                 <div className="relative text-center px-6 mx-auto text-white flex flex-col justify-center items-center">
@@ -62,7 +62,7 @@ const Body: React.FC = () => {
             {/* about */}
             <div className='w-full flex flex-col items-center mx-auto gap-6 mt-12'>
                 <div id='concept' className='flex flex-col lg:flex-col justify-center items-center gap-4 lg:gap-16 mx-6'>
-                    <img src='common/logo.webp' className='h-24 lg:h-36 w-auto'/>
+                    <img src='common/logo.webp' alt='再読み込みしてください'  className='h-24 lg:h-36 w-auto'/>
                     <p className='text-sm lg:text-base text-center'>
                         『とっとりフリースクールネットワーク』は、<br />
                         鳥取県にある<b>すべてのフリースクールの情報を掲載すること</b>を目指して活動しているプロジェクトです。<br />
@@ -103,7 +103,7 @@ const Body: React.FC = () => {
                             onClick={() => navigate(button.link)}
                             className='w-64 h-64 relative text-base z-10 rounded-full flex flex-col items-center justify-center gap-0 hover:-translate-y-2 transition-all duration-200 shadow-2xl hover:border-ws-primary hover:border hover:shadow-ws-primary hover:shadow-2xl group'
                         >
-                            <img src={button.href} className='absolute -z-10 w-full h-full inset-0 rounded-full overflow-hidden object-cover'/>
+                            <img src={button.href} alt='再読み込みしてください'  className='absolute -z-10 w-full h-full inset-0 rounded-full overflow-hidden object-cover'/>
                             <div className='border-2 border-ws-gray group-hover:border-ws-primary px-6 py-2 bg-white group-hover:bg-ws-primary bg-opacity-50 group-hover:bg-opacity-100'>
                                 <h2 className='text-xl'>{button.label}</h2>
                                 <p className='text-xs'>{button.description}</p>
