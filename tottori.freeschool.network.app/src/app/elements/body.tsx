@@ -42,10 +42,11 @@ const Body: React.FC = () => {
 
                 {/* Content */}
                 <div className="relative text-center px-6 mx-auto text-white flex flex-col justify-center items-center">
-                    <h1 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight text-ws-black text-nowrap">
-                        不登校は、不幸じゃない
+                    <h1 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight text-ws-black text-nowrap absolute opacity-0">
+                        不登校は、不幸じゃない。
                     </h1>
-                    <h2 className="text-base lg:text-xl mb-8 font-light bg-ws-primary px-2">
+                    <img src='/common/hero_title.webp' className='w-full lg:w-3/5 h-auto'/>
+                    <h2 className="text-base mt-2 lg:mt-2 lg:text-xl mb-8 font-light bg-ws-primary px-2">
                         不登校や行きしぶりへの不安を<br className='lg:hidden'/>一緒に軽減していくサイトです
                     </h2>
                     <a
