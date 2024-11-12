@@ -56,9 +56,9 @@ const Body: React.FC = () => {
                     >
                         サイトを見る
                     </a>
-                    <a className='opacity-0 absolute pointer-events-none' href='https://tottori-yawaraka-infos.org/network/events'>フリースクールの一覧</a>
-                    <a className='opacity-0 absolute pointer-events-none' href='https://tottori-yawaraka-infos.org/org'>運営者の情報</a>
-                    <a className='opacity-0 absolute pointer-events-none' href='https://tottori-yawaraka-infos.org/roadmap'>プロジェクトロードマップ</a>
+                    <a className='opacity-0 absolute w-0 h-0 pointer-events-none' href='https://tottori-yawaraka-infos.org/network/events'>フリースクールの一覧</a>
+                    <a className='opacity-0 absolute w-0 h-0 pointer-events-none' href='https://tottori-yawaraka-infos.org/org'>運営者の情報</a>
+                    <a className='opacity-0 absolute w-0 h-0 pointer-events-none' href='https://tottori-yawaraka-infos.org/roadmap'>プロジェクトロードマップ</a>
                 </div>
             </section>
 
