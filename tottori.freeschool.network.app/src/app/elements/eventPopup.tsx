@@ -171,8 +171,9 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose 
                                         <FaQuestionCircle className="text-gray-500 cursor-pointer" />
                                         {isTooltipVisible && (
                                             <div className="absolute top-full lg:left-0 right-0 mt-1 w-56 p-2 bg-ws-primary text-white text-xs rounded shadow-lg z-10">
-                                                認定とは？<br />
-                                                行政から補助金の交付対象となっているフリースクールのこと。<br />
+                                                Q. 認定とは？<br />
+                                                <br />
+                                                A. 不登校児童生徒が学校外の民間施設で支援等を受けた際に、学校や市町村（学校組合）教育委員会が「出席扱い」と判断されるフリースクールに与えられるもの。<br />
                                                 <br />
                                                 認定を受けると、<br />
                                                 ・公教育機関の出席扱いになる<br />

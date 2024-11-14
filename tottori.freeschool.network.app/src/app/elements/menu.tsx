@@ -30,6 +30,7 @@ const Menu: React.FC<{ toggleView: () => void, isMapView: boolean, toggleTag: (t
                 <ul className="my-1 text-sm text-ws-black gap-1 hidden lg:block cursor-default">
                     <h3 className="pl-2 border-l-2 border-ws-primary my-2 ml-1">すべてのフリースクールの<br />情報を掲載することを<br />目指して活動しています</h3>
                     <h3 className="pl-2 border-l-2 border-ws-primary my-2 ml-1">元教員の３児の母と、不登校支援に携わる大学生が主に運営しています</h3>
+                    <h3 className="pl-2 border-l-2 border-ws-primary my-2 ml-1">順次、県内のフリースクールを追加掲載していきます</h3>
                 </ul>
             </div>
 
