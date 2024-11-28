@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: "鳥取県内のフリースクール情報を最も詳しくまとめたサイト。元教員の母と不登校支援の大学生が運営し、フリースクールの特徴やサポート内容を網羅。保護者や学生に役立つ最新情報をお届けします。フリースクールとは、不登校をはじめとして、何らかの課題を抱えるお子さんに「第三の居場所」を提供する民間の施設です。鳥取でおすすめのフリースクールを紹介し、それぞれのフリースクールの特徴や教育方針、価格などをわかりやすく紹介していきます。【とっとりフリースクールネットワーク】は、不登校の子ども、学校を休みがちの子どもについての悩みに寄り添う、保護者や支援者向け不登校ポータルサイトです。｜とっとりフリースクールネットワーク",
     images: [
       {
-        url: "/common/logo.webp",
+        url: "https://tottori-yawaraka-infos.org/common/logo.webp",
         width: 600,
         height: 600,
         alt: "ロゴ",
@@ -39,12 +39,11 @@ export const metadata: Metadata = {
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "とっとりフリースクールネットワーク",
-  "url": "https://tottori-yawaraka-infos.org",
+  "name": metadata.title,
+  "url": metadata.metadataBase,
   "logo": "https://tottori-yawaraka-infos.org/common/logo.webp",
-  "description": "鳥取県内のフリースクール情報を最も詳しくまとめたサイト。元教員の母と不登校支援の大学生が運営し、フリースクールの特徴やサポート内容を網羅。保護者や学生に役立つ最新情報をお届けします。フリースクールとは、不登校をはじめとして、何らかの課題を抱えるお子さんに「第三の居場所」を提供する民間の施設です。鳥取でおすすめのフリースクールを紹介し、それぞれのフリースクールの特徴や教育方針、価格などをわかりやすく紹介していきます。【とっとりフリースクールネットワーク】は、不登校の子ども、学校を休みがちの子どもについての悩みに寄り添う、保護者や支援者向け不登校ポータルサイトです。｜とっとりフリースクールネットワーク"
+  "description": metadata.description,
 };
-
 
 
 type RootLayoutProps = {
@@ -61,6 +60,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
         </script>
+        
 
       </Head>
       <body className="bg-slate-50">
