@@ -183,7 +183,7 @@ export const StaffBox: React.FC<{ img: string, name: string, post: string, role:
     return (
         <>
             <div className='w-full flex flex-col items-center'>
-                <img src={`/portfolio/${img}.webp`} className='w-11/12 h-96 object-cover object-center'/>
+                <img src={`/portfolio/${img}.webp`} className='w-11/12 h-96 object-cover object-top'/>
                 <h2 className='font-bold mt-1'>{name}</h2>
                 <div className='w-11/12'>
                     <h2 className='font-bold text-sm mt-4'>役職</h2>
