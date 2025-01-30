@@ -25,6 +25,7 @@ export interface Event {
     contact: string;
     certificate: boolean;
     build_date: string;
+    published:boolean;
 }
 
 //基本フィールドセット
@@ -38,6 +39,7 @@ export const basicFields: (keyof Event)[] = [
     "target",
     "address",
     "img",
+    "published"
 ];
 
 // 詳細フィールドセット
