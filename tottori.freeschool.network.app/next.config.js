@@ -5,7 +5,8 @@ const nextConfig = {
   },
   webpack: (config) => {
     if (config.optimization?.splitChunks) {
-      config.optimization.splitChunks.maxSize = 20000000;
+      config.optimization.splitChunks.maxSize = 2000000; // 2MB に分割
+      config.optimization.splitChunks.minSize = 100000;  // 100KB から分割
     }
     return config;
   },
