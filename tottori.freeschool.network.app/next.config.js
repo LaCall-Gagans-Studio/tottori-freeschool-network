@@ -3,34 +3,44 @@ const nextConfig = {
   env: {
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
   },
-  experimental: {
-    serverComponentsExternalPackages: [
-      // Cloudflare側に送らず外部参照させる依存（重そうなやつ）
-      "react-markdown",
-      "gray-matter",
-      "js-yaml",
-      "firebase",
-      "@octokit/rest",
-      "leaflet",
-      "react-leaflet",
-    ],
-  },
   webpack: (config) => {
     if (config.optimization?.splitChunks) {
-      config.optimization.splitChunks.maxSize = 2 * 1024 * 1024; // 2MB
-      config.optimization.splitChunks.minSize = 100 * 1024; // 100KB
+      config.optimization.splitChunks.maxSize = 500 * 1024; // 500KBに圧縮
+      config.optimization.splitChunks.minSize = 10 * 1024;  // 最小でも10KB
 
       config.optimization.splitChunks.cacheGroups = {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
+        framework: {
+          name: "framework",
+          test: /[\\/]node_modules[\\/](react|react-dom|next|scheduler)[\\/]/,
+          chunks: "all",
+          priority: 40,
           enforce: true,
-          priority: -10,
         },
-        default: {
+        lib: {
+          test(module) {
+            return (
+              module.size() > 160000 &&
+              /node_modules[/\\]/.test(module.identifier())
+            );
+          },
+          name(module) {
+            const crypto = require("crypto");
+            return crypto.createHash("sha1").update(module.identifier()).digest("hex").substring(0, 8);
+          },
+          priority: 30,
+          minChunks: 1,
+          reuseExistingChunk: true,
+          enforce: true,
+        },
+        commons: {
+          name: "commons",
           minChunks: 2,
-          priority: -20,
+          priority: 20,
+        },
+        shared: {
+          name: "shared",
+          priority: 10,
+          minChunks: 2,
           reuseExistingChunk: true,
         },
       };
