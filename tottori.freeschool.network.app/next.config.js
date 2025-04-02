@@ -13,6 +13,7 @@ const nextConfig = {
     ],
   },
   webpack: (config) => {
+    config.cache = false; 
     if (config.optimization?.splitChunks) {
       config.optimization.splitChunks.maxSize = 500 * 1024; // 500KBに圧縮
       config.optimization.splitChunks.minSize = 10 * 1024;  // 最小でも10KB
