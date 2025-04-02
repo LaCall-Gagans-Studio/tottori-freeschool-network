@@ -3,7 +3,7 @@ const nextConfig = {
     env: {
         GITHUB_TOKEN: process.env.GITHUB_TOKEN,
     },
-    webpack: (config) => {
+    webpack: (/** @type {any} */ config) => {
         config.optimization.splitChunks.maxSize = 20000000;
         return config;
     },
