@@ -2,8 +2,8 @@
 const nextConfig = {
     env: {
         GITHUB_TOKEN: process.env.GITHUB_TOKEN,
-      },
-  }
-  
-  export default nextConfig
-  
+    },
+    experimental: { reactMode: 'concurrent' }
+}
+
+export default nextConfig
