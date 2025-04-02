@@ -135,9 +135,9 @@ const EventPopup: React.FC<FirebaseEventPopupProps> = ({ selectedEvent, onClose 
                     
                         {/* schedule, cost, events */}
                         <div className="mt-12 text-sm lg:text-base lg:mt-24 flex flex-col gap-8 lg:gap-10">
-                            <Accordion icon={CiClock1} title='時間割' text={<CustomText text={selectedEvent.timetable} />} />
-                            <Accordion icon={CiCoins1} title='費用' text={<CustomText text={selectedEvent.cost} />} />
-                            <Accordion icon={CiCalendarDate} title='行事など' text={<CustomText text={selectedEvent.events} />} />
+                            <Accordion icon={<CiClock1 />} title='時間割' text={<CustomText text={selectedEvent.timetable} />} />
+                            <Accordion icon={<CiCoins1 />} title='費用' text={<CustomText text={selectedEvent.cost} />} />
+                            <Accordion icon={<CiCalendarDate />} title='行事など' text={<CustomText text={selectedEvent.events} />} />
                         </div>
                     
                         {/* others */}
