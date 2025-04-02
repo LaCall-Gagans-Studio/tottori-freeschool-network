@@ -3,6 +3,15 @@ const nextConfig = {
   env: {
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
   },
+  experimental: {
+    serverComponentsExternalPackages: [
+      'firebase',
+      '@octokit/rest',
+      'gray-matter',
+      'js-yaml',
+      'leaflet',
+    ],
+  },
   webpack: (config) => {
     if (config.optimization?.splitChunks) {
       config.optimization.splitChunks.maxSize = 500 * 1024; // 500KBに圧縮
