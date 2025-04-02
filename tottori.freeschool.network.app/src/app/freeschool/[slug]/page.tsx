@@ -98,9 +98,9 @@ export default async function FreeschoolPage({ params }: { params: { slug: strin
         </div>
 
         <div className="mt-12 text-sm lg:text-base lg:mt-24 flex flex-col gap-8 lg:gap-10">
-          <Accordion icon={CiClock1} title='時間割' text={<CustomText text={event.timetable} />} />
-          <Accordion icon={CiCoins1} title='費用' text={<CustomText text={event.cost} />} />
-          <Accordion icon={CiCalendarDate} title='行事など' text={<CustomText text={event.events} />} />
+          <Accordion icon={<CiClock1 />} title='時間割' text={<CustomText text={event.timetable} />} />
+          <Accordion icon={<CiCoins1 />} title='費用' text={<CustomText text={event.cost} />} />
+          <Accordion icon={<CiCalendarDate />} title='行事など' text={<CustomText text={event.events} />} />
         </div>
 
         <div className="flex mt-8 lg:mt-12 text-ws-primary text-2xl items-center font-semibold gap-2">

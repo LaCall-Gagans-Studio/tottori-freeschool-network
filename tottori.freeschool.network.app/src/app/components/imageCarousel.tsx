@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 
-interface ImageSliderProps {
-    images: string[];
+interface ImageCarouselProps {
+    images?: string[];
     }
 
-    const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
+    
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ images = [] }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
 
@@ -49,7 +50,7 @@ interface ImageSliderProps {
                     }`}
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
-                    {images.map((img, index) => (
+                    {images?.map((img, index) => (
                         <img
                         key={index}
                         src={`/img/${img}.webp`}
@@ -62,7 +63,7 @@ interface ImageSliderProps {
 
             {/* ポツ点部分 */}
             <div className="flex mt-2 space-x-2 absolute bottom-2">
-                {images.map((_, index) => (
+                {images?.map((_, index) => (
                 <button
                     key={index}
                     className={`h-3 w-3 rounded-full ${
@@ -76,4 +77,4 @@ interface ImageSliderProps {
     );
 };
 
-export default ImageSlider;
+export default ImageCarousel;

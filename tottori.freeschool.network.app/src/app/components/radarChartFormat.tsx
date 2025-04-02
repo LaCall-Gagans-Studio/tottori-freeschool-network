@@ -9,11 +9,11 @@ interface RadarChartProps {
 
 const RadarChartFormat: React.FC<RadarChartProps> = ({ data }) => {
     // 文字列をパースしてオブジェクト配列に変換
-    const parsedData = data.map(item => {
+    const parsedData = (data || []).map(item => {
         const [name, score] = item.split('=');
         return {
             subject: name,
-            score: parseInt(score, 10),
+            A: parseInt(score),
         };
     });
 
