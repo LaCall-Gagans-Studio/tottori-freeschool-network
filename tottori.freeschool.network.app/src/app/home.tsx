@@ -28,17 +28,17 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   // 初期ロード時に`sessionStorage`からパスを取得してリダイレクト
-  //   const savedPath = sessionStorage.getItem('path');
+  useEffect(() => {
+    // 初期ロード時に`sessionStorage`からパスを取得してリダイレクト
+    const savedPath = sessionStorage.getItem('path');
     
-  //   if (savedPath) {
-  //     navigate(savedPath); // 保存されたパスにリダイレクト
-  //     sessionStorage.removeItem('path'); // 使用後にクリア
-  //   }
-  // }, [navigate]);
+    if (savedPath) {
+      navigate(savedPath); // 保存されたパスにリダイレクト
+      sessionStorage.removeItem('path'); // 使用後にクリア
+    }
+  }, [navigate]);
 
-  // const location = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     // Check if the URL matches `/network/{collection}`

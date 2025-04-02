@@ -15,13 +15,16 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
 // ISR (Incremental Static Regeneration)
 export const revalidate = 3600;
 
-export async function generateStaticParams() {
-  const postsDir = path.join(process.cwd(), "posts", "entries");
-  const files = await fs.readdir(postsDir);
+export const dynamic = "force-static" // 静的ビルドで固定
 
+export async function generateStaticParams() {
+  const postsDir = path.join("posts", "entries");
+  const files = await fs.readdir(postsDir)
   return files
-    .filter((name) => name.endsWith(".md"))
-    .map((name) => ({ slug: name.replace(/\.md$/, "") }));
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => ({
+      slug: file.replace(/\.md$/, ""),
+    }))
 }
 
 export default async function FreeschoolPage({ params }: { params: { slug: string } }) {
