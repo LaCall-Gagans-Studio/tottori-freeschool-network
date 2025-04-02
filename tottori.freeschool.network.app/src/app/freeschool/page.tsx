@@ -21,7 +21,7 @@ export interface FreeschoolEntry {
   [key: string]: any;
 }
 
-export async function getFreeschoolEntries(): Promise<FreeschoolEntry[]> {
+async function getFreeschoolEntries(): Promise<FreeschoolEntry[]> {
   const files = await fs.readdir(entriesDir);
   const freeschoolEntries: FreeschoolEntry[] = [];
 
