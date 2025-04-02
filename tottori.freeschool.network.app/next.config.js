@@ -8,7 +8,7 @@ const nextConfig = {
       'firebase',
       '@octokit/rest',
       'gray-matter',
-      'js-yaml',
+      'js-yaml', 
       'leaflet',
     ],
   },
