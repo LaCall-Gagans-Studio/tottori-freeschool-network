@@ -11,7 +11,7 @@ export default function GitHubTest() {
         const res = await octokit.request("/user")
         console.log("✅ 認証成功:", res.data.login)
       } catch (err) {
-        console.error("❌ GitHub認証エラー:", err)
+        console.error("GitHub認証エラー:", err)
       }
     }
     checkAuth()
