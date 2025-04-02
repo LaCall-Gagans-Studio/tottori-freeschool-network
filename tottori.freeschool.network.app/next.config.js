@@ -1,9 +1,5 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-
 /** @type {import('next').NextConfig} */
-const nextConfig = withBundleAnalyzer({
+const nextConfig = {
   env: {
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
   },
@@ -13,6 +9,6 @@ const nextConfig = withBundleAnalyzer({
     }
     return config;
   },
-});
+};
 
 module.exports = nextConfig;
