@@ -4,11 +4,11 @@ const nextConfig = {
         GITHUB_TOKEN: process.env.GITHUB_TOKEN,
     },
     webpack: (config) => {
-        if (!config.optimization.splitChunks) return config;
-    
-        config.optimization.splitChunks.maxSize = 20000000; // 20MB
+        config.optimization.splitChunks.maxSize = 20000000; // 20MB に分割
         return config;
     },
 }
 
 export default nextConfig
+
+// next.config.js
