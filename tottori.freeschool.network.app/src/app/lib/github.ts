@@ -29,23 +29,8 @@ export async function uploadImageToGitHub(file: File): Promise<string> {
   const filename = `${Date.now()}_${file.name}`
   const path = `tottori.freeschool.network.app/public/images/${filename}`
 
-  let sha: string | undefined;
-
-  try {
-    const res = await octokit.repos.getContent({ owner, repo, path });
-    // すでに存在する場合は sha を取得（更新用）
-    if (!Array.isArray(res.data)) {
-      sha = res.data.sha;
-      console.log("重複につき既存画像を利用:", path);
-    }
-  } catch (err: any) {
-    if (err.status === 404) {
-      console.log("新規画像としてアップロード", path);
-    } else {
-      console.error("画像存在チェック中にエラー:", err);
-      throw err; // 404以外のエラーはちゃんと投げる
-    }
-  }
+  const { data: existingFile } = await octokit.repos.getContent({ owner, repo, path }).catch(() => ({ data: null }))
+  const sha = existingFile && !Array.isArray(existingFile) ? existingFile.sha : undefined
 
   await octokit.repos.createOrUpdateFileContents({
     owner,
@@ -56,20 +41,24 @@ export async function uploadImageToGitHub(file: File): Promise<string> {
     sha,
   })
 
-  // HTMLに画像プレビュー挿入（デバッグ用）
-  // const url = `https://raw.githubusercontent.com/${owner}/${repo}/main/tottori.freeschool.network.app/public/images/${filename}`
-  // if (typeof window !== "undefined") {
-  //   const img = document.createElement("img")
-  //   img.src = url
-  //   img.alt = "アップロード画像プレビュー"
-  //   img.style.width = "200px"
-  //   img.style.border = "2px solid orange"
-  //   img.style.marginTop = "1rem"
-  //   document.body.appendChild(img)
-  // }
+  const url = `/images/${filename}`
+  console.log("✅ アップロードされた画像URL:", url)
 
-  return `https://raw.githubusercontent.com/${owner}/${repo}/main/tottori.freeschool.network.app/public/images/${filename}`
+  // 🔽 HTMLに画像プレビュー挿入（デバッグ用）
+  if (typeof window !== "undefined") {
+    const img = document.createElement("img")
+    img.src = url
+    img.alt = "アップロード画像プレビュー"
+    img.style.width = "200px"
+    img.style.border = "2px solid orange"
+    img.style.marginTop = "1rem"
+    document.body.appendChild(img)
+  }
+
+  return url
 }
+
+
 
 
 export async function saveStructuredEntryToGitHub(slug: string, frontmatterData: Record<string, any>, content: string = "") {
