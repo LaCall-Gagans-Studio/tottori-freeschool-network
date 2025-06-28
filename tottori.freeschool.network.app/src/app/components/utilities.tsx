@@ -31,7 +31,7 @@ export const DeleteRichText: React.FC<{ text: string }> = ({ text }) => {
 export const CustomText: React.FC<{ text: string }> = ({ text }) => {
     
     // 改行ごとにテキストを分割
-    const processedText = (text || "").split('\n');
+    const processedText = text.split('\\n');
 
     // パターンを置換し、特定の要素では改行を追加しないようにするフラグ
     const replacePatterns = (line: string) => {
@@ -99,19 +99,18 @@ export const CustomText: React.FC<{ text: string }> = ({ text }) => {
 
 
 
+//TimestampFormat
 export const TimestampFormat: React.FC<{ timestamp: any }> = ({ timestamp }) => {
-    if (!timestamp || !timestamp.seconds) return <span>未設定</span>;
 
-    const date = new Date(timestamp.seconds * 1000);
+    const date = new Date(timestamp.seconds * 1000); // Firestore TimestampをDateに変換
     const options: Intl.DateTimeFormatOptions = {
         year: "numeric",
         month: "long",
         day: "numeric",
     };
-    
+
     return <span>{date.toLocaleDateString("ja-JP", options)}</span>;
 };
-
 
 
 // TargetValueFormat
@@ -155,29 +154,28 @@ export const TargetValueFormat: React.FC<{ target: string[] }> = ({ target }) =>
 
 
 //googleMapEmbed
-export const GoogleMapEmbed: React.FC<{
-    location?: { latitude: number; longitude: number };
-    width?: string;
-    height?: string;
-  }> = ({ location, width = "100%", height = "200px" }) => {
-    if (!location) return <p className="text-sm text-gray-400">地図情報がありません</p>;
-  
+export const GoogleMapEmbed: React.FC<{ 
+    location: {
+        latitude: number;
+        longitude: number;
+    }, width: string, height: string
+    }> = ({ location, width, height }) => {
+
     const { latitude, longitude } = location;
     const mapSrc = `https://maps.google.co.jp/maps?&q=${latitude},${longitude}&output=embed&t=m&z=17`;
-  
+
     return (
-      <iframe
+        <iframe
         width={width}
         height={height}
         src={mapSrc}
-        style={{ border: 0 }}
         allowFullScreen
         loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      />
+        title="Event Location"
+        ></iframe>
     );
-  };
-  
+};
+
 
 // StaffBox
 export const StaffBox: React.FC<{ img: string, name: string, post: string, role: ReactNode, career: ReactNode, message: ReactNode }> = ({ img, name, post, role, career, message }) => {
@@ -229,7 +227,7 @@ export const MenuLinkElements: React.FC<{
 
 //Accordion
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-export const Accordion: React.FC<{ icon: React.ReactNode, title: string, text: ReactNode }> = ({ icon: Icon, title, text }) => {
+export const Accordion: React.FC<{ icon: React.ComponentType, title: string, text: ReactNode }> = ({ icon: Icon, title, text }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const toggleExpanded = () => {
@@ -239,7 +237,7 @@ export const Accordion: React.FC<{ icon: React.ReactNode, title: string, text: R
     return (
         <div>
             <div className="flex text-ws-primary text-2xl items-center font-semibold gap-2" >
-                {Icon} 
+                {Icon && <Icon />} 
                 <h2>{title}</h2>
                 <div className='lg:hidden' onClick={toggleExpanded}>{isExpanded ? <FaChevronUp /> : <FaChevronDown />}</div>
                 
